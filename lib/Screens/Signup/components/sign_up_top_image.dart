@@ -21,7 +21,7 @@ class SignUpScreenTopImage extends StatelessWidget {
           children: [
             const Spacer(),
             Expanded(
-              flex: 3,
+              flex: 1,
               child:Image.asset("assets/images/signup.png"),
             ),
             const Spacer(),

@@ -21,7 +21,7 @@ class WelcomeImage extends StatelessWidget {
           children: [
             Spacer(),
             Expanded(
-              flex: 8,
+              flex: 3,
               child:Image.asset("assets/images/easy_relay.jpg"),
             ),
             Spacer(),

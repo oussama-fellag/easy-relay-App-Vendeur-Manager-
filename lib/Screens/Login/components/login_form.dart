@@ -4,6 +4,7 @@ import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../Signup/signup_screen.dart';
 
+
 class LoginForm extends StatelessWidget {
   const LoginForm({
     Key? key,
@@ -43,6 +44,7 @@ class LoginForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: defaultPadding),
+
           Hero(
             tag: "login_btn",
             child: ElevatedButton(
@@ -52,7 +54,51 @@ class LoginForm extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: defaultPadding),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  color: Colors.white,
+                  child: IconButton(
+                    onPressed:() {},
+                    icon: Icon(
+                      Icons.facebook,
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  color: Colors.white,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.h_mobiledata_rounded,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  color: Colors.white,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.ac_unit,
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           AlreadyHaveAnAccountCheck(
             press: () {
               Navigator.push(
