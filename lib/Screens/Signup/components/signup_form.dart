@@ -2,24 +2,12 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:select_form_field/select_form_field.dart';
+import 'package:test12/Screens/next_signUp/signUp_form_next.dart';
+import 'package:test12/Screens/next_signUp/signUp_screen_next.dart';
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../Login/login_screen.dart';
 
-final List<Map<String, dynamic>> _items = [
-  {
-    'value': 'Manager',
-    'label': 'Manager',
-    'icon': Icon(Icons.person),
-  },
-  {
-    'value': 'vendeur',
-    'label': 'Vendeur',
-    'icon': Icon(Icons.person),
-    'textStyle': TextStyle(color: Colors.red),
-  },
-
-];
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({
@@ -31,16 +19,9 @@ class SignUpForm extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          // type vendeur , manager dans ce champs
-        SelectFormField(
-        type: SelectFormFieldType.dropdown, // or can be dialog
 
 
-        labelText: 'type',
-        items: _items,
-        onChanged: (val) => print(val),
-        onSaved: (val) => print(val),
-       ),
+
           SizedBox(height: 10),
           //nom dans ce champs
           TextFormField(
@@ -77,7 +58,7 @@ class SignUpForm extends StatelessWidget {
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             cursorColor: kPrimaryColor,
-            onSaved: (email) {},
+            onSaved: (emailVen) {},
             decoration: InputDecoration(
               hintText: "Your email",
               prefixIcon: Padding(
@@ -86,27 +67,50 @@ class SignUpForm extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: defaultPadding),
-            // password dans ce champs
-            child: TextFormField(
-              textInputAction: TextInputAction.done,
-              obscureText: true,
-              cursorColor: kPrimaryColor,
-              decoration: InputDecoration(
-                hintText: "Your password",
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.all(defaultPadding),
-                  child: Icon(Icons.lock),
-                ),
+          SizedBox(height: 10),
+          TextFormField(
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
+            cursorColor: kPrimaryColor,
+            onSaved: (num) {},
+            decoration: InputDecoration(
+              hintText: "num1",
+              prefixIcon: Padding(
+                padding: const EdgeInsets.all(defaultPadding),
+                child: Icon(Icons.phone),
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+          TextFormField(
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
+            cursorColor: kPrimaryColor,
+            onSaved: (num2) {},
+            decoration: InputDecoration(
+              hintText: "num2",
+              prefixIcon: Padding(
+                padding: const EdgeInsets.all(defaultPadding),
+                child: Icon(Icons.phone),
               ),
             ),
           ),
 
+
           const SizedBox(height: defaultPadding / 2),
           ElevatedButton(
-            onPressed: () {},
-            child: Text("Sign Up".toUpperCase()),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return LoginScreenNext();
+                  },
+                ),
+              );
+
+            },
+            child: Text("Next".toUpperCase()),
           ),
           const SizedBox(height: defaultPadding),
           AlreadyHaveAnAccountCheck(
@@ -127,3 +131,6 @@ class SignUpForm extends StatelessWidget {
     );
   }
 }
+
+
+

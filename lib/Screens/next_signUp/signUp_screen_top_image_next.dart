@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
 
-import '../../../constants.dart';
 
-class LoginScreenTopImage extends StatelessWidget {
-  const LoginScreenTopImage({
+class LoginScreenTopImageNext extends StatelessWidget {
+  const LoginScreenTopImageNext({
     Key? key,
   }) : super(key: key);
 
@@ -12,17 +12,14 @@ class LoginScreenTopImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          "Welcome to login seller page",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+
         SizedBox(height: defaultPadding * 1.3),
         Row(
           children: [
             const Spacer(),
             Expanded(
               flex: 1,
-              child: Image.asset("assets/images/login page.jpg"),
+              child: Image.asset("assets/images/signup.png"),
             ),
             const Spacer(),
           ],

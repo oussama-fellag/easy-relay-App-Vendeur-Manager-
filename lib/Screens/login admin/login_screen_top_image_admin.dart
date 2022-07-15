@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
 
-import '../../../constants.dart';
 
-class LoginScreenTopImage extends StatelessWidget {
-  const LoginScreenTopImage({
+class LoginScreenTopImageAdmin extends StatelessWidget {
+  const LoginScreenTopImageAdmin({
     Key? key,
   }) : super(key: key);
 
@@ -13,7 +13,7 @@ class LoginScreenTopImage extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "Welcome to login seller page",
+          "Welcome to Admin login ",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         SizedBox(height: defaultPadding * 1.3),
@@ -21,8 +21,8 @@ class LoginScreenTopImage extends StatelessWidget {
           children: [
             const Spacer(),
             Expanded(
-              flex: 1,
-              child: Image.asset("assets/images/login page.jpg"),
+              flex: 5,
+              child: Image.asset("assets/images/admin.png"),
             ),
             const Spacer(),
           ],

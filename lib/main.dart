@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
+import 'package:test12/Screens/Login/login_screen.dart';
 
 
 import 'Screens/Welcome/welcome_screen.dart';
@@ -64,6 +65,6 @@ class MyApp extends StatelessWidget {
 class AfterSplash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const WelcomeScreen();
+    return const LoginScreen();
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/gestures.dart';
+import 'package:test12/Screens/login%20admin/login_screen_admin.dart';
+import 'package:test12/Screens/login%20admin/login_screen_top_image_admin.dart';
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../Signup/signup_screen.dart';
@@ -43,7 +45,7 @@ class LoginForm extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: 5),
 
           Hero(
             tag: "login_btn",
@@ -54,51 +56,8 @@ class LoginForm extends StatelessWidget {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+          SizedBox(height: 20),
 
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  color: Colors.white,
-                  child: IconButton(
-                    onPressed:() {},
-                    icon: Icon(
-                      Icons.facebook,
-                      color: Colors.blueGrey,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  color: Colors.white,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.h_mobiledata_rounded,
-                      color: Colors.redAccent,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  color: Colors.white,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.ac_unit,
-                      color: Colors.blueGrey,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
           AlreadyHaveAnAccountCheck(
             press: () {
               Navigator.push(
@@ -111,6 +70,33 @@ class LoginForm extends StatelessWidget {
               );
             },
           ),
+          SizedBox(height: 20),
+
+      Row(children: [
+        Text("                   you are already a manager? " , style: TextStyle(color: kPrimaryColor)),
+        new GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return LoginScreenAdmin();
+                },
+              ),
+            );
+          },
+          child: new Text("click here" , style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.bold),),
+        )
+      ],),
+
+
+
+
+
+
+
+
+
         ],
       ),
     );
