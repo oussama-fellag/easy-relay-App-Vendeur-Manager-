@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 import '../../components/background.dart';
 import '../../responsive.dart';
 
 import 'signUp_form_next.dart';
 import 'signUp_screen_top_image_next.dart';
+
 class LoginScreenNext extends StatelessWidget {
   const LoginScreenNext({Key? key}) : super(key: key);
 
@@ -23,7 +23,7 @@ class LoginScreenNext extends StatelessWidget {
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     SizedBox(
                       width: 450,
                       child: LoginFormNext(),
@@ -51,7 +51,7 @@ class MobileLoginScreen extends StatelessWidget {
       children: <Widget>[
         const LoginScreenTopImageNext(),
         Row(
-          children: const [
+          children: [
             Spacer(),
             Expanded(
               flex: 8,

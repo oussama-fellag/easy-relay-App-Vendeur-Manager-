@@ -1,36 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test12/services/vendeur_authentication.dart';
 
-import '../../components/already_have_an_account_acheck.dart';
-import '../../constant.dart';
 import '../../constants.dart';
-
+import '../../providers/vendeur_provider.dart';
 
 class LoginFormNext extends StatelessWidget {
-  const  LoginFormNext
-      ({
+  LoginFormNext({
     Key? key,
   }) : super(key: key);
+  TextEditingController nomController = TextEditingController();
+  TextEditingController adresseController = TextEditingController();
+  TextEditingController communeController = TextEditingController();
+  TextEditingController num1Controller = TextEditingController();
+  TextEditingController num2Controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Form(
-        child: Column(
+      child: Column(
         children: [
-        TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        textInputAction: TextInputAction.next,
-        cursorColor: Color(0xFF6F35A5),
-        onSaved: (nom_vendeur) {},
-    decoration: InputDecoration(
-    hintText: "nom boutique",
-    prefixIcon: Padding(
-    padding: const EdgeInsets.all(defaultPadding),
-    child: Icon(Icons.shop_2),
-    ),
-    ),
-    ),
-          SizedBox(height: 10),
           TextFormField(
+            controller: nomController,
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
+            cursorColor: const Color(0xFF6F35A5),
+            onSaved: (nom_vendeur) {},
+            decoration: const InputDecoration(
+              hintText: "nom boutique",
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(defaultPadding),
+                child: Icon(Icons.shop_2),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          TextFormField(
+            controller: adresseController,
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             cursorColor: Color(0xFF6F35A5),
@@ -45,6 +51,7 @@ class LoginFormNext extends StatelessWidget {
           ),
           SizedBox(height: 10),
           TextFormField(
+            controller: communeController,
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             cursorColor: Color(0xFF6F35A5),
@@ -57,41 +64,99 @@ class LoginFormNext extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 10),
-    Padding(
-    padding: const EdgeInsets.symmetric(vertical: defaultPadding),
-    child: TextFormField(
-    textInputAction: TextInputAction.done,
-    obscureText: true,
-    cursorColor:Color(0xFF6F35A5) ,
-    decoration: InputDecoration(
-    hintText: "Your password",
-    prefixIcon: Padding(
-    padding: const EdgeInsets.all(defaultPadding),
-    child: Icon(Icons.lock),
-    ),
-    ),
-    ),
-    ),
-    const SizedBox(height: 5),
-
-    Hero(
-    tag: "login_btn",
-    child: ElevatedButton(
-    onPressed: () {},
-    child: Text(
-    "Login".toUpperCase(),
-    ),
-    ),
-    ),
-    SizedBox(height: 20),
-
-
+          const SizedBox(height: 10),
+          TextFormField(
+            controller: num1Controller,
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
+            cursorColor: kPrimaryColor,
+            onSaved: (value) {},
+            decoration: const InputDecoration(
+              hintText: "num1",
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(defaultPadding),
+                child: Icon(Icons.phone),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          TextFormField(
+            controller: num2Controller,
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
+            cursorColor: kPrimaryColor,
+            onSaved: (num2) {},
+            decoration: const InputDecoration(
+              hintText: "num2",
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(defaultPadding),
+                child: Icon(Icons.phone),
+              ),
+            ),
+          ),
+          const SizedBox(height: 5),
+          Hero(
+            tag: "login_btn",
+            child: ElevatedButton(
+              onPressed: () async {
+                Provider.of<VendeurProvider>(context, listen: false).secondPart(
+                    adresse: adresseController.text,
+                    communeId: int.parse(communeController.text),
+                    nom: nomController.text,
+                    num1: int.parse(num1Controller.text),
+                    num2: int.parse(num2Controller.text));
+                print(Provider.of<VendeurProvider>(context, listen: false)
+                    .vendeur
+                    .communeId);
+                var status = await Authentication().vendeurCreation(
+                    Provider.of<VendeurProvider>(context, listen: false)
+                        .vendeur);
+                if (status == "Error authentication") {
+                  showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text('Error authentication'),
+                      content: const Text('Please enter ur informations again'),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'Cancel'),
+                          child: const Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'OK'),
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    ),
+                  );
+                } else {
+                  showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text('Authentication Success'),
+                      content: const Text('Success'),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'Cancel'),
+                          child: const Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'OK'),
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+              },
+              child: Text(
+                "Login".toUpperCase(),
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
         ],
-        ),
+      ),
     );
   }
 }
-
-
-

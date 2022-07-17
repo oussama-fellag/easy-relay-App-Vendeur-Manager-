@@ -5,8 +5,6 @@ import '../../constants.dart';
 import '../../responsive.dart';
 import 'components/sign_up_top_image.dart';
 import 'components/signup_form.dart';
-import 'components/socal_sign_up.dart';
-
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -25,12 +23,12 @@ class SignUpScreen extends StatelessWidget {
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     SizedBox(
                       width: 450,
                       child: SignUpForm(),
                     ),
-                    SizedBox(height: defaultPadding / 2),
+                    const SizedBox(height: defaultPadding / 2),
                     // SocalSignUp()
                   ],
                 ),
@@ -55,13 +53,13 @@ class MobileSignupScreen extends StatelessWidget {
       children: <Widget>[
         const SignUpScreenTopImage(),
         Row(
-          children: const [
-            Spacer(),
+          children: [
+            const Spacer(),
             Expanded(
               flex: 8,
               child: SignUpForm(),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
         // const SocalSignUp()
