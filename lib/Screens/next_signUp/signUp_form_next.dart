@@ -111,12 +111,12 @@ class LoginFormNext extends StatelessWidget {
                 var status = await Authentication().vendeurCreation(
                     Provider.of<VendeurProvider>(context, listen: false)
                         .vendeur);
-                if (status == "Error authentication") {
+                if (status != '') {
                   showDialog<String>(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
                       title: const Text('Error authentication'),
-                      content: const Text('Please enter ur informations again'),
+                      content: Text(status),
                       actions: <Widget>[
                         TextButton(
                           onPressed: () => Navigator.pop(context, 'Cancel'),

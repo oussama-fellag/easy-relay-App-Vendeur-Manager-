@@ -7,7 +7,7 @@ class Authentication {
   final Dio _dio = Dio();
 
   Future vendeurCreation(Vendeur vendeur) async {
-    var status;
+    var status = '';
     const String apiPath =
         "https://dev.easy-relay.com/api/vendeur/creation.php?action=creationVendeurStandard";
     var data = FormData.fromMap(vendeur.toJson());
@@ -39,8 +39,7 @@ class Authentication {
         }
       }
     } on Exception catch (e) {
-      status = "Error authentication";
-      return status;
+      return e.toString();
     }
   }
 }
