@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test12/Screens/Login/login_screen.dart';
+import 'package:test12/Screens/barcode_/barcode_test.dart';
+import 'package:test12/Screens/barcode_/test2.dart';
+import 'package:test12/Screens/dispatch/dispatch.dart';
 import 'package:test12/providers/vendeur_provider.dart';
 
 import 'Screens/Welcome/welcome_screen.dart';
@@ -23,14 +26,14 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Auth',
         theme: ThemeData(
             primaryColor: kPrimaryColor,
-            scaffoldBackgroundColor: Colors.white,
+            scaffoldBackgroundColor: Color.fromARGB(255, 239, 239, 239),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
                 elevation: 0,
                 primary: kPrimaryColor,
-                shape: const StadiumBorder(),
-                maximumSize: const Size(double.infinity, 56),
-                minimumSize: const Size(double.infinity, 56),
+                // shape: const StadiumBorder(),
+                //maximumSize: const Size(double.infinity, 56),
+                //minimumSize: const Size(double.infinity, 56),
               ),
             ),
             inputDecorationTheme: const InputDecorationTheme(
@@ -44,6 +47,12 @@ class MyApp extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(35)),
                 borderSide: BorderSide.none,
               ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(35)),
+                borderSide: BorderSide(
+                  color: kPrimaryColor,
+                ),
+              ),
             )),
         home: /*new SplashScreen(
           seconds: 14,
@@ -55,7 +64,7 @@ class MyApp extends StatelessWidget {
           photoSize: 100.0,
           loaderColor: Colors.red
       ),*/
-            AfterSplash(),
+            const Dispatch(),
       ),
     );
   }
