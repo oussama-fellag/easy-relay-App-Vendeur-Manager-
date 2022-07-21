@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test12/services/vendeur_authentication.dart';
+import 'package:test12/services/authentication.dart';
 
 import '../../constants.dart';
 import '../../providers/vendeur_provider.dart';

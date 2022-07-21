@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 import '../../components/background.dart';
 import '../../responsive.dart';
 
 import 'login_form_admin.dart';
 import 'login_screen_top_image_admin.dart';
+
 class LoginScreenAdmin extends StatelessWidget {
   const LoginScreenAdmin({Key? key}) : super(key: key);
 
@@ -23,7 +23,7 @@ class LoginScreenAdmin extends StatelessWidget {
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     SizedBox(
                       width: 450,
                       child: LoginFormAdmin(),
@@ -51,13 +51,13 @@ class MobileLoginScreen extends StatelessWidget {
       children: <Widget>[
         const LoginScreenTopImageAdmin(),
         Row(
-          children: const [
-            Spacer(),
+          children: [
+            const Spacer(),
             Expanded(
               flex: 8,
               child: LoginFormAdmin(),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ],

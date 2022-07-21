@@ -6,7 +6,6 @@ import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../Signup/signup_screen.dart';
 
-
 class LoginForm extends StatelessWidget {
   const LoginForm({
     Key? key,
@@ -22,10 +21,10 @@ class LoginForm extends StatelessWidget {
             textInputAction: TextInputAction.next,
             cursorColor: kPrimaryColor,
             onSaved: (email) {},
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: "Your email",
               prefixIcon: Padding(
-                padding: const EdgeInsets.all(defaultPadding),
+                padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.person),
               ),
             ),
@@ -36,7 +35,7 @@ class LoginForm extends StatelessWidget {
               textInputAction: TextInputAction.done,
               obscureText: true,
               cursorColor: kPrimaryColor,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: "Your password",
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(defaultPadding),
@@ -46,7 +45,6 @@ class LoginForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-
           Hero(
             tag: "login_btn",
             child: ElevatedButton(
@@ -56,47 +54,48 @@ class LoginForm extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 20),
-
+          const SizedBox(height: 20),
           AlreadyHaveAnAccountCheck(
             press: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return SignUpScreen();
+                    return const SignUpScreen();
                   },
                 ),
               );
             },
           ),
-          SizedBox(height: 20),
-
-      Row(children: [
-        Text("                   you are already a manager? " , style: TextStyle(color: kPrimaryColor)),
-        new GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return LoginScreenAdmin();
-                },
+          const SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Flexible(
+                child: Text("Already a manager? ",
+                    style: TextStyle(color: kPrimaryColor)),
               ),
-            );
-          },
-          child: new Text("click here" , style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.bold),),
-        )
-      ],),
-
-
-
-
-
-
-
-
-
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return LoginScreenAdmin();
+                      },
+                    ),
+                  );
+                },
+                child: new Text(
+                  "click here",
+                  style: TextStyle(
+                      color: kPrimaryColor, fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
         ],
       ),
     );

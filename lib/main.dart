@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test12/Screens/Login/login_screen.dart';
-import 'package:test12/Screens/barcode_/barcode_test.dart';
-import 'package:test12/Screens/barcode_/test2.dart';
 import 'package:test12/Screens/dispatch/dispatch.dart';
 import 'package:test12/providers/vendeur_provider.dart';
 
@@ -64,7 +62,7 @@ class MyApp extends StatelessWidget {
           photoSize: 100.0,
           loaderColor: Colors.red
       ),*/
-            const Dispatch(),
+            const LoginScreen(),
       ),
     );
   }
