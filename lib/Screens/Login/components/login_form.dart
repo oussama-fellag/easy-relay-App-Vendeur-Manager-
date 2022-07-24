@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:test12/Screens/login%20admin/login_screen_admin.dart';
 import 'package:test12/Screens/login%20admin/login_screen_top_image_admin.dart';
+import 'package:test12/Screens/vendeur/ajouter_commande.dart';
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../Signup/signup_screen.dart';
@@ -15,7 +16,18 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const Text(
+            "Seller Login",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+                color: kPrimaryColor),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           TextFormField(
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
@@ -47,10 +59,18 @@ class LoginForm extends StatelessWidget {
           const SizedBox(height: 5),
           Hero(
             tag: "login_btn",
-            child: ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                "Login".toUpperCase(),
+            child: SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => AjouterCommande())));
+                },
+                child: Text(
+                  "Login".toUpperCase(),
+                ),
               ),
             ),
           ),
@@ -83,13 +103,13 @@ class LoginForm extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return LoginScreenAdmin();
+                        return const LoginScreenAdmin();
                       },
                     ),
                   );
                 },
-                child: new Text(
-                  "click here",
+                child: const Text(
+                  "Click here",
                   style: TextStyle(
                       color: kPrimaryColor, fontWeight: FontWeight.bold),
                 ),

@@ -86,24 +86,27 @@ class SignUpForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: defaultPadding / 2),
-          ElevatedButton(
-            onPressed: () {
-              Provider.of<VendeurProvider>(context, listen: false).firstPart(
-                  nomVendeur: nomController.text,
-                  prenom: prenomController.text,
-                  compte: Compte(
-                      email: emailController.text,
-                      password: passwordController.text));
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const LoginScreenNext();
-                  },
-                ),
-              );
-            },
-            child: Text("Next".toUpperCase()),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {
+                Provider.of<VendeurProvider>(context, listen: false).firstPart(
+                    nomVendeur: nomController.text,
+                    prenom: prenomController.text,
+                    compte: Compte(
+                        email: emailController.text,
+                        password: passwordController.text));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const LoginScreenNext();
+                    },
+                  ),
+                );
+              },
+              child: Text("Next".toUpperCase()),
+            ),
           ),
           const SizedBox(height: defaultPadding),
           AlreadyHaveAnAccountCheck(

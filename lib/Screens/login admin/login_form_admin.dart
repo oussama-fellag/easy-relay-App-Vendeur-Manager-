@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test12/Screens/dispatch/dispatch.dart';
+import 'package:test12/bloc/livreur_bloc.dart';
 
 import '../../constants.dart';
 import '../../models/models.dart';
@@ -15,6 +17,7 @@ class LoginFormAdmin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
             controller: emailController,
@@ -57,7 +60,6 @@ class LoginFormAdmin extends StatelessWidget {
                       email: emailController.text,
                       password: passwordController.text);
                   var status = await Authentication().adminLogin(compte);
-                  print("alo" + status);
                   if (status != '') {
                     showDialog<String>(
                       context: context,
@@ -77,26 +79,14 @@ class LoginFormAdmin extends StatelessWidget {
                       ),
                     );
                   } else {
-                    showDialog<String>(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                        title: const Text('Authentication Success'),
-                        content: const Text('Success'),
-                        actions: <Widget>[
-                          TextButton(
-                            onPressed: () => Navigator.pop(context, 'Cancel'),
-                            child: const Text('Cancel'),
-                          ),
-                          TextButton(
-                            onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Dispatch())),
-                            child: const Text('OK'),
-                          ),
-                        ],
-                      ),
-                    );
+                    print("we");
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BlocProvider<LivreurBloc>(
+                                create: (context) =>
+                                    LivreurBloc(compte: compte),
+                                child: const Dispatch())));
                   }
                 },
                 child: Text(

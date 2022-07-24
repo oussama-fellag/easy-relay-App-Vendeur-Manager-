@@ -4,3 +4,4 @@ export 'credential_exception.dart';
 export 'order_exist_exception.dart';
 export 'required_params_exception.dart';
 export 'unexpected_error.dart';
+export 'wrong_credentials.dart';

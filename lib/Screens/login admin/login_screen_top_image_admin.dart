@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 
-
 class LoginScreenTopImageAdmin extends StatelessWidget {
   const LoginScreenTopImageAdmin({
     Key? key,
@@ -12,11 +11,14 @@ class LoginScreenTopImageAdmin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          "Welcome to Admin login ",
-          style: TextStyle(fontWeight: FontWeight.bold),
+        const Text(
+          "Admin Login",
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 24, color: kPrimaryColor),
         ),
-        SizedBox(height: defaultPadding * 1.3),
+        const SizedBox(
+          height: 20,
+        ),
         Row(
           children: [
             const Spacer(),
@@ -27,7 +29,7 @@ class LoginScreenTopImageAdmin extends StatelessWidget {
             const Spacer(),
           ],
         ),
-        SizedBox(height: defaultPadding * 2),
+        const SizedBox(height: defaultPadding * 2),
       ],
     );
   }

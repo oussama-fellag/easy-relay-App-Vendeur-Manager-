@@ -2,3 +2,8 @@ export 'compte.dart';
 export 'vendeur.dart';
 export 'response_data.dart';
 export 'admin.dart';
+export 'admin_response.dart';
+export 'livreur.dart';
+export 'commande.dart';
+export 'client.dart';
+export 'livraison.dart';

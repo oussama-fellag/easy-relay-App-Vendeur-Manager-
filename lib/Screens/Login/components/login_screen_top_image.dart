@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import '../../../constants.dart';
 
 class LoginScreenTopImage extends StatelessWidget {
@@ -11,12 +10,8 @@ class LoginScreenTopImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Welcome to login seller page",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        SizedBox(height: defaultPadding * 1.3),
         Row(
           children: [
             const Spacer(),
@@ -27,7 +22,7 @@ class LoginScreenTopImage extends StatelessWidget {
             const Spacer(),
           ],
         ),
-        SizedBox(height: defaultPadding * 2),
+        const SizedBox(height: defaultPadding * 2),
       ],
     );
   }
