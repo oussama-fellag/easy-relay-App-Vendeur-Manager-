@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:test12/Screens/Login/login_screen.dart';
-import 'package:test12/Screens/dispatch/dispatch.dart';
 import 'package:test12/Screens/vendeur/ajouter_commande.dart';
 import 'package:test12/bloc/livreur_bloc.dart';
 import 'package:test12/providers/vendeur_provider.dart';

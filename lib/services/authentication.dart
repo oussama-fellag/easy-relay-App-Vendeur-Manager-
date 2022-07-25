@@ -25,6 +25,7 @@ class Authentication {
       }
     } on Exception catch (e) {
       status = e.toString();
+      return status;
     }
   }
 

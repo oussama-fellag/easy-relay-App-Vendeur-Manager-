@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:test12/Screens/dispatch/tournee_widget.dart';
+import 'package:test12/Screens/login%20admin/login_screen_admin.dart';
 import 'package:test12/constant.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
-import '../global widgets/bottom_button.dart';
+import '../dispatch/tournee_widget.dart';
+import '../../global widgets/bottom_button.dart';
 import 'widgets/chercher_livreur_input.dart';
 
 class Dispatch extends StatefulWidget {
@@ -49,6 +50,18 @@ class _DispatchState extends State<Dispatch> {
         onTap: onTap,
       ),
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.logout,
+            color: kPrimaryColor,
+          ),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: ((context) => const LoginScreenAdmin())));
+          },
+        ),
         actions: [
           Center(
               child: Padding(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test12/Screens/vendeur/ajouter_commande.dart';
+import 'package:test12/Screens/vendeur/menu/menu_vendeur.dart';
 import 'package:test12/services/authentication.dart';
 
 import '../../constants.dart';
@@ -137,7 +138,7 @@ class LoginFormNext extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AjouterCommande(),
+                          builder: (context) => ScreenMenuVendeur(),
                         ));
                   }
                 },

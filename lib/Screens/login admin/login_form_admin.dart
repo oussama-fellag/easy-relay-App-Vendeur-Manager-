@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test12/Screens/dispatch/dispatch.dart';
+import 'package:test12/Screens/admin/menu/menu_admin.dart';
 import 'package:test12/bloc/livreur_bloc.dart';
+import 'package:test12/main.dart';
 
 import '../../constants.dart';
 import '../../models/models.dart';
@@ -79,14 +80,13 @@ class LoginFormAdmin extends StatelessWidget {
                       ),
                     );
                   } else {
-                    print("we");
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => BlocProvider<LivreurBloc>(
                                 create: (context) =>
                                     LivreurBloc(compte: compte),
-                                child: const Dispatch())));
+                                child: const ScreenMenu())));
                   }
                 },
                 child: Text(
@@ -96,6 +96,13 @@ class LoginFormAdmin extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
+          GestureDetector(
+            child: Text("Vendeur?, appuyez ici"),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => AfterSplash())));
+            },
+          )
         ],
       ),
     );
