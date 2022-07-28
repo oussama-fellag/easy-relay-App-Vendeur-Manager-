@@ -39,7 +39,6 @@ class Commande {
       'tracking': tracking,
       'commentaire': commentaire ?? '',
       'designation': designation ?? '',
-      "delivery_geo": livraison.geo ?? '',
     };
   }
 }

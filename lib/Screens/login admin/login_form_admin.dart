@@ -7,6 +7,10 @@ import 'package:test12/main.dart';
 import '../../constants.dart';
 import '../../models/models.dart';
 import '../../services/authentication.dart';
+import '../admin/profil_admin/testScreen.dart';
+
+String email = " ";
+String email1 = "gggggggg ";
 
 class LoginFormAdmin extends StatelessWidget {
   LoginFormAdmin({
@@ -87,6 +91,9 @@ class LoginFormAdmin extends StatelessWidget {
                                 create: (context) =>
                                     LivreurBloc(compte: compte),
                                 child: const ScreenMenu())));
+                    email = compte.email;
+                    print(compte.email);
+                    email.replaceAll(email, em);
                   }
                 },
                 child: Text(

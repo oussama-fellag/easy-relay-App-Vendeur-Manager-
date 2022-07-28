@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'package:test12/Screens/login%20admin/login_screen_admin.dart';
-import 'package:test12/Screens/login%20admin/login_screen_top_image_admin.dart';
-import 'package:test12/Screens/vendeur/ajouter_commande.dart';
 import 'package:test12/Screens/vendeur/menu/menu_vendeur.dart';
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
@@ -19,13 +16,6 @@ class LoginForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Seller Login",
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
-                color: kPrimaryColor),
-          ),
           const SizedBox(
             height: 20,
           ),

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:test12/Screens/login%20admin/login_screen_admin.dart';
+import 'package:test12/Screens/vendeur/menu/commandes/liste_commandes.dart';
 import 'package:test12/constant.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-
-import '../dispatch/tournee_widget.dart';
+import '../../vendeur/menu/commandes/tournee_widget.dart';
 import '../../global widgets/bottom_button.dart';
 import 'widgets/chercher_livreur_input.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/services.dart';
+import 'dart:typed_data';
 
 class Dispatch extends StatefulWidget {
   const Dispatch({Key? key}) : super(key: key);
@@ -22,6 +25,19 @@ class _DispatchState extends State<Dispatch> {
     setState(() {
       visible = true;
     });
+  }
+
+  Future playLocalAsset() async {
+    String audioasset = "myCustomSoundEffect.mp3";
+
+    AudioPlayer player = AudioPlayer();
+    await player.play(AssetSource(audioasset));
+  }
+
+  Stream<dynamic> startBarcodeScanStream() {
+    return FlutterBarcodeScanner.getBarcodeStreamReceiver(
+        '#ff6666', 'Terminer', true, ScanMode.BARCODE)!;
+    //   .listen((barcode) => print(barcode),);
   }
 
   Future<void> scanBarcodeNormal() async {
@@ -40,9 +56,25 @@ class _DispatchState extends State<Dispatch> {
     });
   }
 
+  updateWidgets(String barcode) {
+    if (mounted) {
+      super.setState(() {
+        playLocalAsset();
+
+        widgets.add(TourneeWidget(
+          barcode: barcode,
+          commande: commande1,
+        ));
+      });
+    }
+  }
+
+  List<Widget> widgets = [];
   TextEditingController textController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    var subscription;
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: BottomButton(
@@ -51,7 +83,7 @@ class _DispatchState extends State<Dispatch> {
       ),
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.logout,
             color: kPrimaryColor,
           ),
@@ -71,7 +103,11 @@ class _DispatchState extends State<Dispatch> {
                   Icons.qr_code_2_rounded,
                   color: kPrimaryColor,
                 ),
-                onPressed: () => scanBarcodeNormal()),
+                onPressed: () {
+                  subscription = startBarcodeScanStream().listen((event) {
+                    updateWidgets(event);
+                  });
+                }),
           )),
         ],
         elevation: 0.0,
@@ -95,11 +131,15 @@ class _DispatchState extends State<Dispatch> {
               const SizedBox(
                 height: 10,
               ),
+              Flexible(
+                child: ListView(
+                  children: widgets,
+                ),
+              ),
               Visibility(
                   visible: visible,
                   child: TourneeWidget(
                     barcode: _scanBarcode,
-                    livreur: '',
                   ))
             ],
           ),

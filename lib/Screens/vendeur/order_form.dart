@@ -3,10 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/vendeur_bloc.dart';
 import '../../constant.dart';
+import 'widgets/wilya_button.dart';
 
 class OrderForm extends StatefulWidget {
-  const OrderForm({Key? key}) : super(key: key);
-
+  const OrderForm({Key? key, this.numero, this.quantity, this.prix})
+      : super(key: key);
+  final String? numero;
+  final String? quantity;
+  final String? prix;
   @override
   State<OrderForm> createState() => _OrderFormState();
 }
@@ -27,7 +31,8 @@ class _OrderFormState extends State<OrderForm> {
           height: 15,
         ),
         TextFormField(
-          decoration: const InputDecoration(hintText: "Numéro téléphone"),
+          decoration:
+              InputDecoration(hintText: widget.numero ?? "Numéro téléphone*"),
           validator: (value) => value!.isEmpty ? "Entrez une value" : null,
           keyboardType: TextInputType.number,
         ),
@@ -35,30 +40,29 @@ class _OrderFormState extends State<OrderForm> {
           height: 15,
         ),
         TextFormField(
-          decoration: const InputDecoration(hintText: "Numéro téléphone 2*"),
-          validator: (value) => value!.isEmpty ? "Entrez une value" : null,
+          decoration: const InputDecoration(hintText: "Numéro téléphone 2"),
           keyboardType: TextInputType.number,
         ),
         const SizedBox(
           height: 10,
         ),
         TextFormField(
-          decoration: const InputDecoration(hintText: "Prix"),
+          decoration: InputDecoration(hintText: widget.prix ?? "Prix*"),
           validator: (value) => value!.isEmpty ? "Entrez une value" : null,
           keyboardType: TextInputType.number,
         ),
         const SizedBox(
           height: 10,
         ),
-        TextFormField(
-          decoration: const InputDecoration(hintText: "Quantité"),
-          validator: (value) => value!.isEmpty ? "Entrez une value" : null,
+        WilayaButton(
+          items: ["1", "2", "3", "4", "5", "6", "7"],
+          hint: widget.quantity ?? "Quantité",
         ),
         const SizedBox(
           height: 10,
         ),
         TextFormField(
-          decoration: const InputDecoration(hintText: "Order ID"),
+          decoration: const InputDecoration(hintText: "Order ID*"),
           validator: (value) => value!.isEmpty ? "Entrez une value" : null,
           keyboardType: TextInputType.number,
         ),
@@ -67,7 +71,6 @@ class _OrderFormState extends State<OrderForm> {
         ),
         TextFormField(
           decoration: const InputDecoration(hintText: "Designation"),
-          validator: (value) => value!.isEmpty ? "Entrez une value" : null,
         ),
         const SizedBox(
           height: 10,
@@ -75,7 +78,6 @@ class _OrderFormState extends State<OrderForm> {
         TextFormField(
           maxLines: 3,
           decoration: const InputDecoration(hintText: "Commentaire"),
-          validator: (value) => value!.isEmpty ? "Entrez une value" : null,
         )
       ]),
     );

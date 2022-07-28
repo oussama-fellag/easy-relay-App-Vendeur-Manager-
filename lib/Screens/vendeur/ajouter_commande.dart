@@ -4,8 +4,10 @@ import 'package:test12/Screens/global%20widgets/bottom_button.dart';
 import 'package:test12/Screens/vendeur/client_form.dart';
 import 'package:test12/Screens/vendeur/delivery_form.dart';
 import 'package:test12/Screens/vendeur/order_form.dart';
+import 'package:test12/main.dart';
 
 import '../../bloc/vendeur_bloc.dart';
+import '../../constant.dart';
 import '../../models/client.dart';
 import 'custom_stepper.dart';
 
@@ -21,12 +23,7 @@ class _AjouterCommandeState extends State<AjouterCommande> {
   String currentText = "suivant";
   updateIndex() {
     setState(() {
-      if (selectedIndex == 1) {
-        currentText = "confirmer";
-      }
-      if (selectedIndex != 2) {
-        selectedIndex++;
-      }
+      currentText = "confirmer";
     });
   }
 
@@ -34,29 +31,43 @@ class _AjouterCommandeState extends State<AjouterCommande> {
   Widget build(BuildContext context) {
     List<Widget> widgets = const [ClientForm(), DeliveryForm(), OrderForm()];
     return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton:
-            BottomButton(text: currentText, onTap: updateIndex),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            children: [
-              CustomStepper(
-                currentIndex: selectedIndex,
+      child: BlocBuilder<VendeurBloc, VendeurState>(builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+            leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: kPrimaryColor,
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              widgets[selectedIndex]
-            ],
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           ),
-        ),
-      ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: BottomButton(
+              text: currentText,
+              onTap: updateIndex,
+              currentIndex: state.currentIndex),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              children: [
+                CustomStepper(
+                  currentIndex: state.currentIndex!,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                widgets[state.currentIndex!]
+              ],
+            ),
+          ),
+        );
+      }),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test12/Screens/vendeur/widgets/wilya_button.dart';
 import 'package:test12/bloc/livreur_bloc.dart';
 
 class ChercherLivreur extends StatefulWidget {
@@ -21,7 +22,18 @@ class _ChercherLivreurState extends State<ChercherLivreur> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LivreurBloc, LivreurState>(builder: (context, state) {
-      return Container(
+      var stringList;
+      if (state is LivreurReady) {
+        var stringList =
+            state.livreurs.map((e) => '${e.nom!} ${e.prenom!}').toList();
+        return WilayaButton(items: stringList, hint: "Choisissez un livreur");
+      } else {
+        return WilayaButton(
+          items: [''],
+          hint: "Choisissez un livreur",
+        );
+      }
+      /*Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
@@ -120,6 +132,7 @@ class _ChercherLivreurState extends State<ChercherLivreur> {
               debugPrint('You just selected $selection');
             },
           ));
+    });*/
     });
   }
 }

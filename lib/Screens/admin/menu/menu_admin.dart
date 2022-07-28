@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:test12/Screens/admin/dispatch/dispatch.dart';
 
+import '../profil_admin/Profil.dart';
+
 const String page1 = "Dispatch";
 const String page2 = "notification";
-const String page3 = "more";
+const String page3 = "profile";
 const String title = "Admin Page";
 
 class ScreenMenu extends StatelessWidget {
@@ -35,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _page1 = const Dispatch();
     _page2 = const Page2();
-    _page3 = const Page3();
+    _page3 = const ProfilePage1();
     _pages = [_page1, _page2, _page3];
     _currentIndex = 0;
     _currentPage = _page1;
@@ -68,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             label: page3,
-            icon: Icon(Icons.more),
+            icon: Icon(Icons.account_box_rounded),
           ),
         ],
         selectedItemColor: Colors.amber[800],

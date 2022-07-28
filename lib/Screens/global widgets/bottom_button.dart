@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test12/bloc/vendeur_bloc.dart';
+
+import '../../models/models.dart';
 
 class BottomButton extends StatelessWidget {
   const BottomButton({
     Key? key,
     required this.text,
+    this.currentIndex,
     this.onTap,
   }) : super(key: key);
   final String text;
+  final int? currentIndex;
   final Function? onTap;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +31,25 @@ class BottomButton extends StatelessWidget {
             text.toUpperCase(),
           ),
           onPressed: () {
-            onTap!();
+            if (text == "edit profile" || text == "enregistrer") {
+              onTap!();
+            }
+            if (text == "confirmer") {
+              Navigator.pop(context);
+            } else {
+              if (currentIndex != null) {
+                if (currentIndex == 0) {
+                  BlocProvider.of<VendeurBloc>(context).add(AddClient());
+                }
+                if (currentIndex == 1) {
+                  BlocProvider.of<VendeurBloc>(context).add(AddLivraison());
+                }
+                if (currentIndex == 2) {
+                  BlocProvider.of<VendeurBloc>(context).add(AddCommande());
+                }
+              }
+            }
+            // onTap!();
           }),
     );
   }

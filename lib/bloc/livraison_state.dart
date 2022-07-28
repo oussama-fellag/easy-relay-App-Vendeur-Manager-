@@ -4,3 +4,7 @@ part of 'livraison_bloc.dart';
 abstract class LivraisonState {}
 
 class LivraisonInitial extends LivraisonState {}
+
+class LivraisonLoading extends LivraisonState {}
+
+class LivraisonSuccess extends LivraisonState {}
