@@ -24,47 +24,50 @@ class LoginFormNext extends StatelessWidget {
         children: [
           TextFormField(
             controller: nomController,
-            keyboardType: TextInputType.emailAddress,
+            keyboardType: TextInputType.text,
             textInputAction: TextInputAction.next,
             cursorColor: const Color(0xFF6F35A5),
             onSaved: (nom_vendeur) {},
             decoration: const InputDecoration(
-              hintText: "nom boutique",
+              hintText: "nom boutique*",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.shop_2),
               ),
             ),
+            validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
           ),
           const SizedBox(height: 10),
           TextFormField(
             controller: adresseController,
-            keyboardType: TextInputType.emailAddress,
+            keyboardType: TextInputType.text,
             textInputAction: TextInputAction.next,
             cursorColor: Color(0xFF6F35A5),
             onSaved: (adresse) {},
             decoration: InputDecoration(
-              hintText: "adresse",
+              hintText: "adresse*",
               prefixIcon: Padding(
                 padding: const EdgeInsets.all(defaultPadding),
-                child: Icon(Icons.shop_2),
+                child: Icon(Icons.place),
               ),
             ),
+            validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
           ),
           SizedBox(height: 10),
           TextFormField(
             controller: communeController,
-            keyboardType: TextInputType.number,
+            keyboardType: TextInputType.text,
             textInputAction: TextInputAction.next,
             cursorColor: Color(0xFF6F35A5),
-            onSaved: (commune_id) {},
+            onSaved: (commune) {},
             decoration: InputDecoration(
-              hintText: "commune",
+              hintText: "commune*",
               prefixIcon: Padding(
                 padding: const EdgeInsets.all(defaultPadding),
-                child: Icon(Icons.shop_2),
+                child: Icon(Icons.place),
               ),
             ),
+            validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
           ),
           const SizedBox(height: 10),
           TextFormField(
@@ -74,12 +77,13 @@ class LoginFormNext extends StatelessWidget {
             cursorColor: kPrimaryColor,
             onSaved: (value) {},
             decoration: const InputDecoration(
-              hintText: "num1",
+              hintText: "num1*",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.phone),
               ),
             ),
+            validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
           ),
           const SizedBox(height: 10),
           TextFormField(

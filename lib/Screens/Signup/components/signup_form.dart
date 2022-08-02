@@ -7,6 +7,14 @@ import '../../../constants.dart';
 import '../../../models/models.dart';
 import '../../Login/login_screen.dart';
 
+var _formKey = GlobalKey<FormState>();
+void submit() {
+  final isValid = _formKey.currentState?.validate();
+  if (!isValid!) {
+    return;
+  }
+  _formKey.currentState?.save();
+}
 class SignUpForm extends StatelessWidget {
   SignUpForm({
     Key? key,
@@ -29,12 +37,13 @@ class SignUpForm extends StatelessWidget {
             cursorColor: kPrimaryColor,
             onSaved: (nom) {},
             decoration: const InputDecoration(
-              hintText: "First name",
+              hintText: "nom*",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.account_box_rounded),
               ),
             ),
+            validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
           ),
           const SizedBox(height: 10),
           // prenom dans ce champs
@@ -45,12 +54,13 @@ class SignUpForm extends StatelessWidget {
             cursorColor: kPrimaryColor,
             onSaved: (prenom) {},
             decoration: const InputDecoration(
-              hintText: "Last name",
+              hintText: "prenom*",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.person),
               ),
             ),
+            validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
           ),
           const SizedBox(height: 10),
           //email dans ce champs
@@ -61,12 +71,13 @@ class SignUpForm extends StatelessWidget {
             cursorColor: kPrimaryColor,
             onSaved: (emailVen) {},
             decoration: const InputDecoration(
-              hintText: "Your email",
+              hintText: "email*",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.email),
               ),
             ),
+            validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
           ),
 
           Padding(
@@ -77,12 +88,13 @@ class SignUpForm extends StatelessWidget {
               obscureText: true,
               cursorColor: const Color(0xFF6F35A5),
               decoration: const InputDecoration(
-                hintText: "Your password",
+                hintText: "mot de passe*",
                 prefixIcon: Padding(
                   padding: EdgeInsets.all(defaultPadding),
                   child: Icon(Icons.lock),
                 ),
               ),
+              validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
             ),
           ),
           const SizedBox(height: defaultPadding / 2),
@@ -105,22 +117,35 @@ class SignUpForm extends StatelessWidget {
                   ),
                 );
               },
-              child: Text("Next".toUpperCase()),
+              child: Text("suivant".toUpperCase()),
             ),
           ),
           const SizedBox(height: defaultPadding),
-          AlreadyHaveAnAccountCheck(
-            login: false,
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const LoginScreen();
-                  },
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Flexible(
+                child: Text("Vous avez deja un compte ? ",
+                    style: TextStyle(color: kPrimaryColor)),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const LoginScreen();
+                      },
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Tappez ici",
+                  style: TextStyle(
+                      color: kPrimaryColor, fontWeight: FontWeight.bold),
                 ),
-              );
-            },
+              )
+            ],
           ),
         ],
       ),

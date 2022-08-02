@@ -31,7 +31,7 @@ class LoginFormAdmin extends StatelessWidget {
             cursorColor: const Color(0xFF6F35A5),
             onSaved: (email) {},
             decoration: const InputDecoration(
-              hintText: "Your email",
+              hintText: "email",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.person),
@@ -46,7 +46,7 @@ class LoginFormAdmin extends StatelessWidget {
               obscureText: true,
               cursorColor: const Color(0xFF6F35A5),
               decoration: const InputDecoration(
-                hintText: "Your password",
+                hintText: "mot de passe",
                 prefixIcon: Padding(
                   padding: EdgeInsets.all(defaultPadding),
                   child: Icon(Icons.lock),
@@ -93,23 +93,42 @@ class LoginFormAdmin extends StatelessWidget {
                                 child: const ScreenMenu())));
                     email = compte.email;
                     print(compte.email);
-                    email.replaceAll(email, em);
+                   // email.replaceAll(email, em);
                   }
                 },
                 child: Text(
-                  "Login".toUpperCase(),
+                  "Connecter".toUpperCase(),
                 ),
               ),
             ),
           ),
           const SizedBox(height: 20),
-          GestureDetector(
-            child: Text("Vendeur?, appuyez ici"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => AfterSplash())));
-            },
-          )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Flexible(
+                child: Text("Vous êtes un Nouveau Vendeur? ",
+                    style: TextStyle(color: kPrimaryColor)),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return  AfterSplash();
+                      },
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Tappez ici",
+                  style: TextStyle(
+                      color: kPrimaryColor, fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
         ],
       ),
     );

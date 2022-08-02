@@ -16,8 +16,8 @@ class LoginScreenTopImage extends StatelessWidget {
           children: [
             const Spacer(),
             Expanded(
-              flex: 1,
-              child: Image.asset("assets/images/login page.jpg"),
+              flex: 2,
+              child: Image.asset("assets/images/login.png"),
             ),
             const Spacer(),
           ],

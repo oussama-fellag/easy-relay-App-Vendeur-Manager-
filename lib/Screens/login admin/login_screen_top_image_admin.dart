@@ -12,7 +12,7 @@ class LoginScreenTopImageAdmin extends StatelessWidget {
     return Column(
       children: [
         const Text(
-          "Admin Login",
+          "Connexion Manager",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 24, color: kPrimaryColor),
         ),

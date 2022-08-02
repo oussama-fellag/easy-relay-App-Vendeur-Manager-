@@ -10,7 +10,7 @@ import 'testScreen.dart';
 int index = email.indexOf('@');
 String Username = email.substring(0, index);
 String phone = " / ccccccc";
-String gg = em;
+
 final nomController = TextEditingController();
 final emailController = TextEditingController();
 final phoneController = TextEditingController();
