@@ -26,10 +26,7 @@ class EditProfil extends StatelessWidget {
         floatingActionButton: BottomButton(
           text: "enregistrer",
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: ((context) => const ProfilePage1())));
+            Navigator.pop(context);
           },
         ),
         body: Form(

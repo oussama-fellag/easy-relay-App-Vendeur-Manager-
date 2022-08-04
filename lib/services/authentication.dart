@@ -3,6 +3,8 @@ import 'exceptions/exceptions.dart';
 import '../models/models.dart';
 import 'dart:convert';
 
+String DataUser= " ";
+
 class Authentication {
   final Dio _dio = Dio();
   Future adminLogin(Compte compte) async {
@@ -11,9 +13,13 @@ class Authentication {
         "http://dev.easy-relay.com/api/mob2/api.php?action=login";
     _dio.options.headers["email"] = compte.email;
     _dio.options.headers["mdp"] = compte.password;
+
     try {
       Response response = await _dio.get(apiPath);
       Map<String, dynamic> responseBody = json.decode(response.data);
+      response = await _dio.get('/test', queryParameters: {'id': 1, });
+      DataUser = response.data.toString();
+      print(DataUser);
       if (response.statusCode == 200) {
         AdminData body = AdminData(
           error: responseBody['error'] ?? '',

@@ -27,11 +27,12 @@ class ProfilePage1 extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return const Dispatch();
+                  return const EditProfil();
                 },
               ),
             );
           },
+
         ),
         body: Column(
           children: [
