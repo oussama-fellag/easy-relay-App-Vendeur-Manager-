@@ -31,7 +31,7 @@ class LoginFormAdmin extends StatelessWidget {
             cursorColor: const Color(0xFF6F35A5),
             onSaved: (email) {},
             decoration: const InputDecoration(
-              hintText: "Your email",
+              hintText: "Email",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.person),
@@ -46,7 +46,7 @@ class LoginFormAdmin extends StatelessWidget {
               obscureText: true,
               cursorColor: const Color(0xFF6F35A5),
               decoration: const InputDecoration(
-                hintText: "Your password",
+                hintText: "Mot de passe",
                 prefixIcon: Padding(
                   padding: EdgeInsets.all(defaultPadding),
                   child: Icon(Icons.lock),

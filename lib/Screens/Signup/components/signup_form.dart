@@ -29,7 +29,7 @@ class SignUpForm extends StatelessWidget {
             cursorColor: kPrimaryColor,
             onSaved: (nom) {},
             decoration: const InputDecoration(
-              hintText: "First name",
+              hintText: "Nom",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.account_box_rounded),
@@ -45,7 +45,7 @@ class SignUpForm extends StatelessWidget {
             cursorColor: kPrimaryColor,
             onSaved: (prenom) {},
             decoration: const InputDecoration(
-              hintText: "Last name",
+              hintText: "Prénom",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.person),
@@ -61,7 +61,7 @@ class SignUpForm extends StatelessWidget {
             cursorColor: kPrimaryColor,
             onSaved: (emailVen) {},
             decoration: const InputDecoration(
-              hintText: "Your email",
+              hintText: "Email",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.email),
@@ -77,7 +77,7 @@ class SignUpForm extends StatelessWidget {
               obscureText: true,
               cursorColor: const Color(0xFF6F35A5),
               decoration: const InputDecoration(
-                hintText: "Your password",
+                hintText: "Mot de passe",
                 prefixIcon: Padding(
                   padding: EdgeInsets.all(defaultPadding),
                   child: Icon(Icons.lock),
