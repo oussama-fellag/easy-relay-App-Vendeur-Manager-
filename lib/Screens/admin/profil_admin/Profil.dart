@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:test12/Screens/admin/dispatch/dispatch.dart';
 import 'package:test12/Screens/login%20admin/login_form_admin.dart';
-
+import 'package:test12/constants.dart';
 import '../../global widgets/bottom_button.dart';
 import 'edit_profile.dart';
 
@@ -11,7 +12,7 @@ String phone = " / ccccccc";
 class ProfilePage1 extends StatelessWidget {
   const ProfilePage1({Key? key}) : super(key: key);
 
-  void onTap() {}
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +20,19 @@ class ProfilePage1 extends StatelessWidget {
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: BottomButton(
-          text: "edit profile",
+
+          text: "modifier",
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: ((context) => const EditProfil())));
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const EditProfil();
+                },
+              ),
+            );
           },
+
         ),
         body: Column(
           children: [
@@ -41,12 +50,12 @@ class ProfilePage1 extends StatelessWidget {
                           .headline6
                           ?.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(height: 99),
+                    const SizedBox(height: 40),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Username:          ',
+                          'Nom:          ',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
@@ -204,7 +213,7 @@ class _TopPortion extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(bottom: 50),
           decoration: const BoxDecoration(
-              color: Colors.purple,
+              color: kPrimaryLightColor,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(50),
                 bottomRight: Radius.circular(50),

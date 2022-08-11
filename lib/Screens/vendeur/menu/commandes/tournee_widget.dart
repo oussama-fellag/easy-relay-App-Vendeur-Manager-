@@ -28,7 +28,7 @@ class TourneeWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text(
-              "Informations",
+              "Commande ID:5700",
               style: TextStyle(
                   color: kPrimaryColor,
                   fontSize: 16,

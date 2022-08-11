@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  #splashscreen:
+  splash_screen_view: ^3.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -41,6 +41,9 @@ dependencies:
   flutter_bloc: ^8.0.1
   flutter_slidable: ^2.0.0
   audioplayers: ^1.0.1
+  horizontal_data_table: ^4.1.1+1
+  data_table_2: ^2.3.5
+  number_inc_dec: ^0.8.0
 
 
 

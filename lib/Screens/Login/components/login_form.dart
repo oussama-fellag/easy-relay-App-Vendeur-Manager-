@@ -25,7 +25,7 @@ class LoginForm extends StatelessWidget {
             cursorColor: kPrimaryColor,
             onSaved: (email) {},
             decoration: const InputDecoration(
-              hintText: "Your email",
+              hintText: " email",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.person),
@@ -39,7 +39,7 @@ class LoginForm extends StatelessWidget {
               obscureText: true,
               cursorColor: kPrimaryColor,
               decoration: const InputDecoration(
-                hintText: "Your password",
+                hintText: "mot de passe",
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(defaultPadding),
                   child: Icon(Icons.lock),
@@ -60,23 +60,37 @@ class LoginForm extends StatelessWidget {
                           builder: ((context) => ScreenMenuVendeur())));
                 },
                 child: Text(
-                  "Login".toUpperCase(),
+                  "Connecter".toUpperCase(),
                 ),
               ),
             ),
           ),
           const SizedBox(height: 20),
-          AlreadyHaveAnAccountCheck(
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const SignUpScreen();
-                  },
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Flexible(
+                child: Text("Vous êtes un Nouveau Vendeur? ",
+                    style: TextStyle(color: kPrimaryColor)),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const SignUpScreen();
+                      },
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Tappez ici",
+                  style: TextStyle(
+                      color: kPrimaryColor, fontWeight: FontWeight.bold),
                 ),
-              );
-            },
+              )
+            ],
           ),
           const SizedBox(
             height: 10,
@@ -85,7 +99,7 @@ class LoginForm extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Flexible(
-                child: Text("Already a manager? ",
+                child: Text("Vous êtes deja un manager? ",
                     style: TextStyle(color: kPrimaryColor)),
               ),
               GestureDetector(
@@ -100,7 +114,7 @@ class LoginForm extends StatelessWidget {
                   );
                 },
                 child: const Text(
-                  "Click here",
+                  "Tappez ici",
                   style: TextStyle(
                       color: kPrimaryColor, fontWeight: FontWeight.bold),
                 ),

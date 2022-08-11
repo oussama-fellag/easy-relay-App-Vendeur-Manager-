@@ -10,8 +10,8 @@ part 'vendeur_state.dart';
 class VendeurBloc extends Bloc<VendeurEvent, VendeurState> {
   Livraison? livraison;
   Commande? commande;
-  Client? client;
   int currentIndex = 0;
+  Client? client;
   GlobalKey<FormState> livraisonKey = GlobalKey<FormState>();
   GlobalKey<FormState> clientKey = GlobalKey<FormState>();
   GlobalKey<FormState> commandeKey = GlobalKey<FormState>();
@@ -28,16 +28,20 @@ class VendeurBloc extends Bloc<VendeurEvent, VendeurState> {
   VendeurBloc() : super(VendeurInitial()) {
     on<AddCommande>((event, emit) {
       if (commandeKey.currentState!.validate()) {
+        client = Client(nom: nomController.text, prenom: prenomController.text);
         commande = Commande(
             client: client!,
-            livraison: livraison!,
+            // livraison: livraison!,
             numero1: int.parse(num1.text),
             price: double.parse(prix.text),
             quantity: int.parse(quantite.text),
             tracking: int.parse(orderId.text),
             commentaire: commentaire.text,
             designation: designation.text);
+        emit(const ClientSuccess());
+        currentIndex++;
       }
+
       //vendeurRepository.ajouterCommande();
     });
     on<AddLivraison>((event, emit) {
@@ -47,13 +51,23 @@ class VendeurBloc extends Bloc<VendeurEvent, VendeurState> {
             prix: 4000,
             wilaya: "Tlemcen",
             commune: "Maghnia");
-        emit(LivraisonSuccess());
+        emit(const LivraisonSuccess());
       }
     });
     on<AddClient>((event, emit) {
       if (clientKey.currentState!.validate()) {
-        client = Client(nom: nomController.text, prenom: prenomController.text);
-        emit(ClientSuccess());
+        emit(const ClientSuccess());
+      }
+    });
+    on<Decrement>((event, emit) {
+      print(currentIndex);
+      print("we");
+      if (currentIndex == 0) {
+        emit(const QuitPage());
+        emit(const VendeurInitial());
+      } else {
+        emit(const VendeurInitial());
+        currentIndex--;
       }
     });
   }

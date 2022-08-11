@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-
 import '../../components/background.dart';
 import '../../responsive.dart';
 import 'components/login_form.dart';
 import 'components/login_screen_top_image.dart';
+import '../../constants.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -49,6 +49,14 @@ class MobileLoginScreen extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
+        const Text(
+          "Connexion Vendeur",
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 24, color: kPrimaryColor),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
         const LoginScreenTopImage(),
         Row(
           children: const [

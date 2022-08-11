@@ -17,7 +17,7 @@ class CustomStepper extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 2, top: 7.5),
               child: Row(
-                  children: List.generate(2,
+                  children: List.generate(1,
                       (index) => _buildDivider(currentIndex > index, index))),
             ),
             Container(
@@ -28,17 +28,9 @@ class CustomStepper extends StatelessWidget {
                   Hero(
                       tag: 'first',
                       child: CircleStep(index: 0, currentIndex: currentIndex)),
-                  Column(
-                    children: [
-                      Hero(
-                          tag: 'second',
-                          child:
-                              CircleStep(index: 1, currentIndex: currentIndex)),
-                    ],
-                  ),
                   Hero(
-                      tag: 'third',
-                      child: CircleStep(index: 2, currentIndex: currentIndex))
+                      tag: 'second',
+                      child: CircleStep(index: 1, currentIndex: currentIndex)),
                 ],
               ),
             )
@@ -60,23 +52,13 @@ class CustomStepper extends StatelessWidget {
                       fontSize: 16),
                 ),
                 Text(
-                  "Commande",
+                  "Livraison",
                   style: TextStyle(
                       color: kPrimaryColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 16),
                 ),
               ],
-            ),
-            const Align(
-              alignment: Alignment(0, 0),
-              child: Text(
-                "Livraison",
-                style: TextStyle(
-                    color: kPrimaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16),
-              ),
             ),
           ],
         ),

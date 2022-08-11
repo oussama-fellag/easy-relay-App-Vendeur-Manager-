@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test12/bloc/vendeur_bloc.dart';
 
 import 'dart:math' as math;
 
@@ -73,13 +74,14 @@ class _WilayaButtonState extends State<WilayaButton> {
                   )
                   .toList(),
 
-          validator: (value) => widget.hint == "Wilaya"
+          validator: (value) => widget.hint != "Commune"
               ? value == null
                   ? "Entrez une valeur"
                   : null
               : null,
 
           onChanged: (newValue) {
+            BlocProvider.of<VendeurBloc>(context).quantite.text = newValue!;
             setState(() {
               currentValue = newValue;
             });

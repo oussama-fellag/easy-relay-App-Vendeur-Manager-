@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test12/Screens/vendeur/Dashboard%20vendeur/Dashboard_vendeur.dart';
 import 'package:test12/Screens/vendeur/ajouter_commande.dart';
 import 'package:test12/Screens/vendeur/menu/commandes/commandes.dart';
 import 'package:test12/Screens/vendeur/menu/signaler%20incident/incident.dart';
@@ -7,7 +8,7 @@ import 'package:test12/main.dart';
 
 const String page1 = "Commandes";
 const String page2 = "Notifications";
-const String page3 = "Plus";
+const String page3 = "Dashboard";
 const String title = "Page Vendeur";
 
 class ScreenMenuVendeur extends StatelessWidget {
@@ -40,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _page1 = const Commandes();
     _page2 = const Page2();
-    _page3 = const Page3();
+    _page3 =  DashboardVendeur();
     _pages = [_page1, _page2, _page3];
     _currentIndex = 0;
     _currentPage = _page1;
@@ -78,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             label: page3,
-            icon: Icon(Icons.more),
+            icon: Icon(Icons.analytics),
           ),
         ],
         selectedItemColor: kPrimaryColor,

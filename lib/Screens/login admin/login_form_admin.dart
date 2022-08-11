@@ -31,7 +31,7 @@ class LoginFormAdmin extends StatelessWidget {
             cursorColor: const Color(0xFF6F35A5),
             onSaved: (email) {},
             decoration: const InputDecoration(
-              hintText: "Email",
+              hintText: "email",
               prefixIcon: Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.person),
@@ -46,7 +46,7 @@ class LoginFormAdmin extends StatelessWidget {
               obscureText: true,
               cursorColor: const Color(0xFF6F35A5),
               decoration: const InputDecoration(
-                hintText: "Mot de passe",
+                hintText: "mot de passe",
                 prefixIcon: Padding(
                   padding: EdgeInsets.all(defaultPadding),
                   child: Icon(Icons.lock),
@@ -61,7 +61,7 @@ class LoginFormAdmin extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () async {
-                  Compte compte = Compte(
+                  /* Compte compte = Compte(
                       email: emailController.text,
                       password: passwordController.text);
                   var status = await Authentication().adminLogin(compte);
@@ -83,33 +83,54 @@ class LoginFormAdmin extends StatelessWidget {
                         ],
                       ),
                     );
-                  } else {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BlocProvider<LivreurBloc>(
-                                create: (context) =>
-                                    LivreurBloc(compte: compte),
-                                child: const ScreenMenu())));
-                    email = compte.email;
-                    print(compte.email);
-                    email.replaceAll(email, em);
-                  }
+                  } else {*/
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BlocProvider<LivreurBloc>(
+                              create: (context) => LivreurBloc(
+                                  compte: Compte(
+                                      email: "zaki.m@easy-relay.com",
+                                      password: "1234")),
+                              child: const ScreenMenu())));
+                  //  email = compte.email;
+                  email = "zaki.m@easy-relay.com";
+                  // email.replaceAll(email, em);
                 },
+                //},
                 child: Text(
-                  "Login".toUpperCase(),
+                  "Connecter".toUpperCase(),
                 ),
               ),
             ),
           ),
           const SizedBox(height: 20),
-          GestureDetector(
-            child: Text("Vendeur?, appuyez ici"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => AfterSplash())));
-            },
-          )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Flexible(
+                child: Text("Vous êtes un Nouveau Vendeur? ",
+                    style: TextStyle(color: kPrimaryColor)),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return AfterSplash();
+                      },
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Tappez ici",
+                  style: TextStyle(
+                      color: kPrimaryColor, fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
         ],
       ),
     );

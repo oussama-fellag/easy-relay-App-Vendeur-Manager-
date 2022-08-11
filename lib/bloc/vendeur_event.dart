@@ -8,3 +8,5 @@ class AddCommande extends VendeurEvent {}
 class AddLivraison extends VendeurEvent {}
 
 class AddClient extends VendeurEvent {}
+
+class Decrement extends VendeurEvent {}

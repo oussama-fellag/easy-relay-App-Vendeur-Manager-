@@ -60,12 +60,6 @@ class _DeliveryFormState extends State<DeliveryForm> {
         const SizedBox(
           height: 10,
         ),
-        TextFormField(
-          decoration: const InputDecoration(hintText: "Localisation exacte"),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
         WilayaButton(items: wilayas, hint: "Commune"),
         const SizedBox(
           height: 10,

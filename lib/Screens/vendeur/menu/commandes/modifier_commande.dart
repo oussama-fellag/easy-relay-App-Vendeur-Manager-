@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test12/Screens/vendeur/client_form.dart';
 import 'package:test12/Screens/vendeur/delivery_form.dart';
-import 'package:test12/Screens/vendeur/order_form.dart';
 import 'package:test12/constant.dart';
 
 import '../../../../models/commande.dart';
@@ -31,7 +30,7 @@ class _ModifierCommandeState extends State<ModifierCommande> {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 76),
           child: CustomScrollView(slivers: [
             const SliverToBoxAdapter(
               child: SizedBox(height: 20),
@@ -47,19 +46,12 @@ class _ModifierCommandeState extends State<ModifierCommande> {
             ),
             SliverToBoxAdapter(
               child: DeliveryForm(
-                adresseHint: widget.commande!.livraison.adresse,
-                wilayaHint: widget.commande!.livraison.wilaya,
+                adresseHint: widget.commande!.livraison!.adresse,
+                wilayaHint: widget.commande!.livraison!.wilaya,
               ),
             ),
             const SliverToBoxAdapter(
               child: SizedBox(height: 10),
-            ),
-            SliverToBoxAdapter(
-              child: OrderForm(
-                numero: widget.commande!.numero1.toString(),
-                quantity: widget.commande!.quantity.toString(),
-                prix: widget.commande!.price.toString(),
-              ),
             ),
             const SliverToBoxAdapter(
               child: SizedBox(height: 10),

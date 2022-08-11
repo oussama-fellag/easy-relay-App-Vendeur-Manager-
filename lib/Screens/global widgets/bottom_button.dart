@@ -39,13 +39,10 @@ class BottomButton extends StatelessWidget {
             } else {
               if (currentIndex != null) {
                 if (currentIndex == 0) {
-                  BlocProvider.of<VendeurBloc>(context).add(AddClient());
+                  BlocProvider.of<VendeurBloc>(context).add(AddCommande());
                 }
                 if (currentIndex == 1) {
                   BlocProvider.of<VendeurBloc>(context).add(AddLivraison());
-                }
-                if (currentIndex == 2) {
-                  BlocProvider.of<VendeurBloc>(context).add(AddCommande());
                 }
               }
             }

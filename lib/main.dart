@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:test12/Screens/Login/login_screen.dart';
-
+import 'package:splash_screen_view/SplashScreenView.dart';
 import 'package:test12/providers/vendeur_provider.dart';
 
 import 'bloc/vendeur_bloc.dart';
@@ -68,23 +68,14 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 )),
-            home: /*new SplashScreen(
-            seconds: 14,
-            navigateAfterSeconds:  AfterSplash(),
-            title: new Text('Easy Relay: Logistics made easy !',  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-            image: new Image.asset('assets/images/easy_relay.jpg'),
-            backgroundColor: Colors.white,
-            styleTextUnderTheLoader: new TextStyle(),
-            photoSize: 100.0,
-            loaderColor: Colors.red
-        ),*/
-                /*BlocProvider<LivreurBloc>(
-                  create: (context) => LivreurBloc(
-                      compte: Compte(
-                          email: "zaki.m@easy-relay.com", password: "test2")),
-                  child: const Dispatch()),*/
-                AfterSplash()),
-      ),
+            home: SplashScreenView(
+    navigateRoute: AfterSplash(),
+    duration: 3000,
+    imageSize: 200,
+    imageSrc: "assets/images/easy_relay.jpg",
+    backgroundColor: Colors.white,
+    )
+      ),)
     );
   }
 }

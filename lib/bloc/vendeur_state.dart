@@ -2,22 +2,26 @@ part of 'vendeur_bloc.dart';
 
 @immutable
 abstract class VendeurState {
-  int? currentIndex;
-  VendeurState({required this.currentIndex});
+  final int currentIndex;
+  const VendeurState({required this.currentIndex});
 }
 
 class VendeurInitial extends VendeurState {
-  VendeurInitial({int currentIndex = 0}) : super(currentIndex: currentIndex);
+  const VendeurInitial({int currentIndex = 0})
+      : super(currentIndex: currentIndex);
 }
 
 class ClientSuccess extends VendeurState {
-  ClientSuccess({int currentIndex = 1}) : super(currentIndex: currentIndex);
+  const ClientSuccess({int currentIndex = 1})
+      : super(currentIndex: currentIndex);
 }
 
 class LivraisonSuccess extends VendeurState {
-  LivraisonSuccess({int currentIndex = 2}) : super(currentIndex: currentIndex);
+  const LivraisonSuccess({int currentIndex = 1})
+      : super(currentIndex: currentIndex);
 }
 
-class CommandeSuccess extends VendeurState {
-  CommandeSuccess({int currentIndex = 2}) : super(currentIndex: currentIndex);
+class QuitPage extends VendeurState {
+  const QuitPage({final int currentIndex = 0})
+      : super(currentIndex: currentIndex);
 }
