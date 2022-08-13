@@ -16,10 +16,22 @@ class LoginForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
+          const SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: const Text(
+              "Connexion Vendeur",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: 24, color: kPrimaryColor),
+            ),
+          ),
           const SizedBox(
             height: 20,
           ),
           TextFormField(
+
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             cursorColor: kPrimaryColor,

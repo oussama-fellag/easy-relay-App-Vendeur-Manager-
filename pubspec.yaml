@@ -44,6 +44,8 @@ dependencies:
   horizontal_data_table: ^4.1.1+1
   data_table_2: ^2.3.5
   number_inc_dec: ^0.8.0
+  file_picker: ^5.0.1
+
 
 
 

@@ -1,13 +1,17 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:test12/Screens/vendeur/menu/menu_vendeur.dart';
 import 'package:test12/constant.dart';
-
 import '../../../../main.dart';
 import '../../../global widgets/bottom_button.dart';
+import '../../widgets/wilya_button.dart';
+
+
 
 class SignalerIncident extends StatelessWidget {
   SignalerIncident({Key? key}) : super(key: key);
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,28 +34,105 @@ class SignalerIncident extends StatelessWidget {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: const BottomButton(
-          text: "signaler",
+          text: "Envoyer",
+
         ),
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text(
-                  "Décrire le probléme que vous avez rencontrez",
-                  style: TextStyle(color: kPrimaryColor, fontSize: 16),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
-                  maxLines: 5,
-                  decoration: const InputDecoration(hintText: "Description"),
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    "Les informatons Du Ticket",
+                    style: TextStyle(color: kPrimaryColor, fontSize: 16,fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 10,),
+                  TextFormField(
+                    maxLines: 1,
+                    decoration: const InputDecoration(hintText: "Id commande*"),
+                    validator: (value) {
+                      if  (value == null || value.isEmpty){
+                        return 'Veuillez entrer une valeur';
+                      }
+                      return null;
+                    },
+                  ),
+                  Text(
+                    "Email:",
+                    style: TextStyle(color: kPrimaryColor, fontSize: 16),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    decoration: const InputDecoration(hintText: "Email"),
+                      initialValue: "Oussama.flg@gmail.com"
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Titre & Type du ticket:",
+                    style: TextStyle(color: kPrimaryColor, fontSize: 16),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                     Row(
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            maxLines: 1,
+                            decoration: const InputDecoration(hintText: "Titre",  ),
+
+                          ),
+                        ),
+                        Spacer(),
+                        Flexible(
+                          child: WilayaButton(
+                              items: ['Question', 'Problème', 'Incident','Demande'],
+                              hint: "type"),
+                        ),
+                      ],
+                    ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+
+
+                    TextFormField(
+                        maxLines: 5,
+                        decoration: const InputDecoration(hintText: "Description*"),
+                        validator: (value) {
+                          if  (value == null || value.isEmpty){
+                            return 'Veuillez entrer une valeur';
+                          }
+                          return null;
+                        },
+                    ),
+                   SizedBox(height: 10,),
+
+
+                     ElevatedButton.icon(
+                      label: Text('Joindre fichier'),
+                       icon: Icon(Icons.upload),
+
+                      onPressed: () async{
+                        final  result = await FilePicker.platform.pickFiles();
+                      },
+                  ),
+
+
+
+
+
+                ],
+              ),
             )));
   }
 

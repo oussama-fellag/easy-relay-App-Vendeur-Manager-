@@ -49,11 +49,7 @@ class MobileLoginScreen extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        const Text(
-          "Connexion Vendeur",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 24, color: kPrimaryColor),
-        ),
+
         const SizedBox(
           height: 20,
         ),

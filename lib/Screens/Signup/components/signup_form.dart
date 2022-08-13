@@ -44,7 +44,12 @@ class SignUpForm extends StatelessWidget {
                 child: Icon(Icons.account_box_rounded),
               ),
             ),
-            validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'entrer une valeur';
+              }
+              return null;
+            },
           ),
           const SizedBox(height: 10),
           // prenom dans ce champs
@@ -61,7 +66,12 @@ class SignUpForm extends StatelessWidget {
                 child: Icon(Icons.person),
               ),
             ),
-            validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'entrer une valeur';
+              }
+              return null;
+            },
           ),
           const SizedBox(height: 10),
           //email dans ce champs
@@ -78,7 +88,12 @@ class SignUpForm extends StatelessWidget {
                 child: Icon(Icons.email),
               ),
             ),
-            validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'entrer une valeur';
+              }
+              return null;
+            },
           ),
 
           Padding(
@@ -95,7 +110,12 @@ class SignUpForm extends StatelessWidget {
                   child: Icon(Icons.lock),
                 ),
               ),
-              validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'entrer une valeur';
+                }
+                return null;
+              },
             ),
           ),
           const SizedBox(height: defaultPadding / 2),
