@@ -6,8 +6,6 @@ import '../../../../main.dart';
 import '../../../global widgets/bottom_button.dart';
 import '../../widgets/wilya_button.dart';
 
-
-
 class SignalerIncident extends StatelessWidget {
   SignalerIncident({Key? key}) : super(key: key);
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
@@ -35,7 +33,6 @@ class SignalerIncident extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: const BottomButton(
           text: "Envoyer",
-
         ),
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -48,14 +45,19 @@ class SignalerIncident extends StatelessWidget {
                   ),
                   const Text(
                     "Les informatons Du Ticket",
-                    style: TextStyle(color: kPrimaryColor, fontSize: 16,fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: kPrimaryColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     maxLines: 1,
                     decoration: const InputDecoration(hintText: "Id commande*"),
                     validator: (value) {
-                      if  (value == null || value.isEmpty){
+                      if (value == null || value.isEmpty) {
                         return 'Veuillez entrer une valeur';
                       }
                       return null;
@@ -69,10 +71,9 @@ class SignalerIncident extends StatelessWidget {
                     height: 10,
                   ),
                   TextFormField(
-                    maxLines: 1,
-                    decoration: const InputDecoration(hintText: "Email"),
-                      initialValue: "Oussama.flg@gmail.com"
-                  ),
+                      maxLines: 1,
+                      decoration: const InputDecoration(hintText: "Email"),
+                      initialValue: "Oussama.flg@gmail.com"),
                   const SizedBox(
                     height: 10,
                   ),
@@ -83,54 +84,50 @@ class SignalerIncident extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                     Row(
-                      children: [
-                        Expanded(
-                          child: TextFormField(
-                            maxLines: 1,
-                            decoration: const InputDecoration(hintText: "Titre",  ),
-
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          maxLines: 1,
+                          decoration: const InputDecoration(
+                            hintText: "Titre",
                           ),
                         ),
-                        Spacer(),
-                        Flexible(
-                          child: WilayaButton(
-                              items: ['Question', 'Problème', 'Incident','Demande'],
-                              hint: "type"),
-                        ),
-                      ],
-                    ),
+                      ),
+                      Spacer(),
+                      Flexible(
+                        child: WilayaButton(items: [
+                          'Question',
+                          'Problème',
+                          'Incident',
+                          'Demande'
+                        ], hint: "type"),
+                      ),
+                    ],
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
-
-
-                    TextFormField(
-                        maxLines: 5,
-                        decoration: const InputDecoration(hintText: "Description*"),
-                        validator: (value) {
-                          if  (value == null || value.isEmpty){
-                            return 'Veuillez entrer une valeur';
-                          }
-                          return null;
-                        },
-                    ),
-                   SizedBox(height: 10,),
-
-
-                     ElevatedButton.icon(
-                      label: Text('Joindre fichier'),
-                       icon: Icon(Icons.upload),
-
-                      onPressed: () async{
-                        final  result = await FilePicker.platform.pickFiles();
-                      },
+                  TextFormField(
+                    maxLines: 5,
+                    decoration: const InputDecoration(hintText: "Description*"),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Veuillez entrer une valeur';
+                      }
+                      return null;
+                    },
                   ),
-
-
-
-
-
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  ElevatedButton.icon(
+                    label: const Text('Joindre fichier'),
+                    icon: const Icon(Icons.upload),
+                    onPressed: () async {
+                      final result = await FilePicker.platform.pickFiles();
+                    },
+                  ),
                 ],
               ),
             )));

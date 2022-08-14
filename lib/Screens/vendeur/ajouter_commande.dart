@@ -30,7 +30,6 @@ class _AjouterCommandeState extends State<AjouterCommande> {
     return SafeArea(
       child: BlocConsumer<VendeurBloc, VendeurState>(
         listener: (context, state) {
-          print(state);
           if (state is QuitPage) {
             Navigator.pop(context);
           }
@@ -39,7 +38,6 @@ class _AjouterCommandeState extends State<AjouterCommande> {
         builder: (context, state) {
           return BlocBuilder<VendeurBloc, VendeurState>(
               builder: (context, state) {
-            print(state);
             return Scaffold(
               appBar: AppBar(
                 backgroundColor: Colors.transparent,
