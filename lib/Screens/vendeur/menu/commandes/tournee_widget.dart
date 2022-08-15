@@ -16,7 +16,7 @@ class TourneeWidget extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => const PlusDinfosLivraison()));
+                builder: (context) => PlusDinfosLivraison(commande: commande)));
       },
       child: Container(
         padding: const EdgeInsets.all(8),

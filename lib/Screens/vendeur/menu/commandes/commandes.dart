@@ -95,9 +95,32 @@ class _CommandesState extends State<Commandes> {
                             // A SlidableAction can have an icon and/or a label.
                             SlidableAction(
                               onPressed: (context) {
-                                setState(() {
-                                  commandes.removeAt(index);
-                                });
+                                showDialog(
+                                    context: context,
+                                    builder: (context) => AlertDialog(
+                                          title: const Text("Confirmation"),
+                                          content: const Text(
+                                              "Voulez vous annuler cette commande?"),
+                                          actions: [
+                                            ElevatedButton(
+                                                onPressed: () {
+                                                  setState(() {
+                                                    commandes.removeAt(index);
+                                                  });
+                                                  Navigator.pop(context);
+                                                },
+                                                child: const Text("Oui")),
+                                            OutlinedButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: const Text(
+                                                  "Non",
+                                                  style: TextStyle(
+                                                      color: kPrimaryColor),
+                                                ))
+                                          ],
+                                        ));
                               },
                               backgroundColor: Colors.transparent,
                               // const Color(0xFFFE4A49),
@@ -107,9 +130,32 @@ class _CommandesState extends State<Commandes> {
                             ),
                             SlidableAction(
                               onPressed: (context) {
-                                setState(() {
-                                  commandes.removeAt(index);
-                                });
+                                showDialog(
+                                    context: context,
+                                    builder: (context) => AlertDialog(
+                                          title: const Text("Confirmation"),
+                                          content: const Text(
+                                              "Voulez vous valider cette commande?"),
+                                          actions: [
+                                            ElevatedButton(
+                                                onPressed: () {
+                                                  setState(() {
+                                                    commandes.removeAt(index);
+                                                  });
+                                                  Navigator.pop(context);
+                                                },
+                                                child: const Text("Oui")),
+                                            OutlinedButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: const Text(
+                                                  "Non",
+                                                  style: TextStyle(
+                                                      color: kPrimaryColor),
+                                                ))
+                                          ],
+                                        ));
                               },
                               backgroundColor: Colors.transparent,
                               //   const Color.fromARGB(255, 64, 166, 67),

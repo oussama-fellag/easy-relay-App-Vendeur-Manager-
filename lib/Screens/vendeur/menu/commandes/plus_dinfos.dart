@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
 
 import '../../../../constant.dart';
+import '../../../../models/models.dart';
+import 'modifier_commande.dart';
 
 class PlusDinfosLivraison extends StatelessWidget {
-  const PlusDinfosLivraison({Key? key}) : super(key: key);
-
+  const PlusDinfosLivraison({Key? key, this.commande}) : super(key: key);
+  final Commande? commande;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Abdelhak Razi"),
-        actions: const [
+        actions: [
           IconButton(
-              onPressed: null,
-              icon: Icon(
-                Icons.message,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            ModifierCommande(commande: commande))));
+              },
+              icon: const Icon(
+                Icons.edit,
                 color: Colors.white,
               ))
         ],
@@ -41,20 +49,13 @@ class PlusDinfosLivraison extends StatelessWidget {
                   color: Colors.white),
               child: Column(
                 children: [
-                  ListTile(
-                    title: const Text(
+                  const ListTile(
+                    title: Text(
                       "Tlemcen",
                       style: TextStyle(
                           color: Color.fromARGB(255, 123, 123, 123),
                           fontSize: 16,
                           fontWeight: FontWeight.bold),
-                    ),
-                    trailing: IconButton(
-                      icon: const Icon(
-                        Icons.map,
-                        color: kPrimaryColor,
-                      ),
-                      onPressed: () {},
                     ),
                   ),
                   const Divider(),
@@ -207,6 +208,31 @@ class PlusDinfosLivraison extends StatelessWidget {
                   ],
                 ),
               ]),
+            ),
+            const Spacer(),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Valider".toUpperCase(),
+                      )),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                    child: OutlinedButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Annuler".toUpperCase(),
+                          style: const TextStyle(color: kPrimaryColor),
+                        )))
+              ],
+            ),
+            const SizedBox(
+              width: 10,
             ),
           ],
         ),
