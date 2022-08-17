@@ -18,7 +18,7 @@ class SignalerIncident extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: kPrimaryColor,
           elevation: 0.0,
-          title: Text("Signaler un incident"),
+          title: const Text("Signaler un incident"),
           //style: TextStyle(color: kPrimaryColor)),
           /*  leading: IconButton(
             icon: Icon(
@@ -50,7 +50,7 @@ class SignalerIncident extends StatelessWidget {
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
@@ -63,7 +63,7 @@ class SignalerIncident extends StatelessWidget {
                       return null;
                     },
                   ),
-                  Text(
+                  const Text(
                     "Email:",
                     style: TextStyle(color: kPrimaryColor, fontSize: 16),
                   ),
@@ -77,7 +77,7 @@ class SignalerIncident extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     "Titre & Type du ticket:",
                     style: TextStyle(color: kPrimaryColor, fontSize: 16),
                   ),
@@ -94,8 +94,8 @@ class SignalerIncident extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Spacer(),
-                      Flexible(
+                      const Spacer(),
+                      const Flexible(
                         child: WilayaButton(items: [
                           'Question',
                           'Problème',
@@ -143,8 +143,8 @@ class SignalerIncident extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('oussama fellag'),
-            accountEmail: Text('oussama.flg@gmail.com'),
+            accountName: const Text('oussama fellag'),
+            accountEmail: const Text('oussama.flg@gmail.com'),
             currentAccountPicture: CircleAvatar(
               radius: 1,
               child: ClipOval(

@@ -212,23 +212,26 @@ class PlusDinfosLivraison extends StatelessWidget {
             const Spacer(),
             Row(
               children: [
-                Expanded(
-                  child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Valider".toUpperCase(),
-                      )),
-                ),
+                if (commande!.livraison!.etat == "En attente")
+                  Expanded(
+                    child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Valider".toUpperCase(),
+                        )),
+                  ),
                 const SizedBox(
                   width: 10,
                 ),
-                Expanded(
-                    child: OutlinedButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Annuler".toUpperCase(),
-                          style: const TextStyle(color: kPrimaryColor),
-                        )))
+                if (commande!.livraison!.etat == "En attente" ||
+                    (commande!.livraison!.etat == "Validé"))
+                  Expanded(
+                      child: OutlinedButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Annuler".toUpperCase(),
+                            style: const TextStyle(color: kPrimaryColor),
+                          )))
               ],
             ),
             const SizedBox(
