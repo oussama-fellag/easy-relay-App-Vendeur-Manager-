@@ -12,19 +12,12 @@ class LoginScreenTopImageAdmin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text(
-          "Connexion Manager",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 24, color: kPrimaryColor),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
+
         Row(
           children: [
             const Spacer(),
             Expanded(
-              flex: 5,
+              flex: 4,
               child: Image.asset("assets/images/admin.png"),
             ),
             const Spacer(),

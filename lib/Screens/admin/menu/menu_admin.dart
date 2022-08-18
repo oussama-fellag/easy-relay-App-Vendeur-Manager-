@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             label: page2,
-            icon: Icon(Icons.notifications),
+            icon: Icon(Icons.devices),
           ),
           BottomNavigationBarItem(
             label: page3,

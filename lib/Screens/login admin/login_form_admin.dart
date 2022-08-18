@@ -24,6 +24,16 @@ class LoginFormAdmin extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Center(
+            child: const Text(
+              "Connexion Manager",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: 24, color: kPrimaryColor),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           TextFormField(
             controller: emailController,
             keyboardType: TextInputType.emailAddress,

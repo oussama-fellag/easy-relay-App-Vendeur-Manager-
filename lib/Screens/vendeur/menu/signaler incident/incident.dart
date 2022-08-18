@@ -53,16 +53,6 @@ class SignalerIncident extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  TextFormField(
-                    maxLines: 1,
-                    decoration: const InputDecoration(hintText: "Id commande*"),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Veuillez entrer une valeur';
-                      }
-                      return null;
-                    },
-                  ),
                   const Text(
                     "Email:",
                     style: TextStyle(color: kPrimaryColor, fontSize: 16),
@@ -87,14 +77,17 @@ class SignalerIncident extends StatelessWidget {
                   Row(
                     children: [
                       Expanded(
-                        child: TextFormField(
-                          maxLines: 1,
-                          decoration: const InputDecoration(
-                            hintText: "Titre",
+                        child: Container(
+
+                          child: TextFormField(
+                            maxLines: 1,
+                            decoration:  InputDecoration(
+                              hintText: "Titre",
+                            ),
                           ),
                         ),
                       ),
-                      const Spacer(),
+                       Spacer(),
                       const Flexible(
                         child: WilayaButton(items: [
                           'Question',
@@ -106,7 +99,15 @@ class SignalerIncident extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    decoration: const InputDecoration(hintText: "Id commande"),
+
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   TextFormField(
                     maxLines: 5,
