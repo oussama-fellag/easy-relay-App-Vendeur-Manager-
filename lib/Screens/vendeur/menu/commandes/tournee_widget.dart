@@ -57,19 +57,19 @@ class TourneeWidget extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
-              Icon(
+            children: [
+              const Icon(
                 Icons.home,
                 color: kPrimaryColor,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
-              Text("Tlemcen, Imama",
+              const Text("Tlemcen, Imama",
                   style: TextStyle(
                       color: Color.fromARGB(255, 123, 123, 123), fontSize: 14)),
-              Spacer(),
-              Text("515220"),
+              const Spacer(),
+              Text(barcode),
             ],
           ),
           const Divider(),

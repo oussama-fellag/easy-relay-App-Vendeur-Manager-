@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test12/bloc/vendeur_bloc.dart';
 
-import '../../models/models.dart';
-
 class BottomButton extends StatelessWidget {
   const BottomButton({
     Key? key,
@@ -31,7 +29,10 @@ class BottomButton extends StatelessWidget {
             text.toUpperCase(),
           ),
           onPressed: () {
-            if (text == "edit profile" || text == "enregistrer") {
+            if (text == "edit profile" ||
+                text == "enregistrer" ||
+                text == "receptionner") {
+              print("wlad hawmti ");
               onTap!();
             }
             if (text == "confirmer") {

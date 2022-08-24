@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test12/Screens/admin/dispatch/dispatch.dart';
 import 'package:test12/screens/admin/caisse.dart';
+import 'package:test12/screens/admin/reception_navette/reception_navette.dart';
 
 import '../profil_admin/Profil.dart';
 
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _page1 = const Dispatch();
     _page2 = const Caisse();
-    _page3 = const ProfilePage1();
+    _page3 = const ReceptionNavette();
     _pages = [_page1, _page2, _page3];
     _currentIndex = 0;
     _currentPage = _page1;

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:test12/Screens/Login/login_screen.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
+import 'package:test12/bloc/scan_colis_bloc.dart';
 import 'package:test12/providers/vendeur_provider.dart';
 
 import 'bloc/vendeur_bloc.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
           BlocProvider<VendeurBloc>(
             create: (context) => VendeurBloc(),
           ),
+          BlocProvider<ScanColisBloc>(create: (context) => ScanColisBloc())
         ],
         child: ChangeNotifierProvider<VendeurProvider>(
           create: (context) => VendeurProvider(),
