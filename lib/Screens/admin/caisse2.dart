@@ -15,30 +15,30 @@ import 'Solde_Caisse.dart';
 
 
 
-class Caisse extends StatefulWidget {
-  const Caisse({Key? key}) : super(key: key);
+class Caisse2 extends StatefulWidget {
+  const Caisse2({Key? key}) : super(key: key);
 
   @override
-  State<Caisse> createState() => _CaisseState();
+  State<Caisse2> createState() => _CaisseState();
 }
 
 
 XFile? _photo;
 final ImagePicker _picker = ImagePicker();
-class _CaisseState extends State<Caisse> {
+class _CaisseState extends State<Caisse2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar:AppBar(
-        title: Text("Transfert Virement"),
-        backgroundColor: kPrimaryColor,
-      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton:  BottomButton(
         text: "Ajouter ",
         onTap: AjoutDialog,
       ),
+      appBar:AppBar(
+        title: Text("Pret Inter Caisse "),
+        backgroundColor: kPrimaryColor,
+      ),
+
       body: Form(
           child: SingleChildScrollView(
             child: Column(
@@ -61,14 +61,8 @@ class _CaisseState extends State<Caisse> {
 
                   validator: (value) => value!.isEmpty ? "Entrez une valeur" : null,
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
-                WilayaButton(items: [
-                  'Hub Alger',
-                  'Hub Oran',
-                  'Autre',
-                ], hint: "Hub reception"),
+
+
                 const SizedBox(
                   height: 20,
                 ),
@@ -95,14 +89,15 @@ class _CaisseState extends State<Caisse> {
                 const SizedBox(
                   height: 15,
                 ),
-                ElevatedButton.icon(
-                  label: const Text(' Selectioner une photo'),
-                  icon: const Icon(Icons.upload),
-                  onPressed: () async {
+                TextFormField(
+                  maxLines: 5,
+                  decoration: const InputDecoration(hintText: "Commentaire"),
 
-                   _showPicker(context);
-                  },
                 ),
+                const SizedBox(
+                  height: 15,
+                ),
+
 
               ],
             ),
@@ -166,7 +161,7 @@ class _CaisseState extends State<Caisse> {
             ),
           );
         });
- }
+  }
 
 
   AjoutDialog() {

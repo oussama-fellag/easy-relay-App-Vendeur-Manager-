@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test12/Screens/admin/Solde_Caisse.dart';
 import 'package:test12/Screens/admin/dispatch/dispatch.dart';
 import 'package:test12/screens/admin/caisse.dart';
 import 'package:test12/screens/admin/reception_navette/reception_navette.dart';
@@ -7,7 +8,7 @@ import '../profil_admin/Profil.dart';
 
 const String page1 = "Dispatch";
 const String page2 = "caisse";
-const String page3 = "profile";
+const String page3 = "reception navette";
 const String title = "Admin Page";
 
 class ScreenMenu extends StatelessWidget {
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     _page1 = const Dispatch();
-    _page2 = const Caisse();
+    _page2 = const SoldeCaisse();
     _page3 = const ReceptionNavette();
     _pages = [_page1, _page2, _page3];
     _currentIndex = 0;
