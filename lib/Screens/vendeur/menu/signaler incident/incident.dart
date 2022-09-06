@@ -1,7 +1,9 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test12/Screens/vendeur/menu/menu_vendeur.dart';
 import 'package:test12/constant.dart';
+import '../../../../bloc/scan_colis_bloc.dart';
 import '../../../../main.dart';
 import '../../../global widgets/bottom_button.dart';
 import '../../widgets/wilya_button.dart';
@@ -33,6 +35,7 @@ class SignalerIncident extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: const BottomButton(
           text: "Envoyer",
+
         ),
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -68,36 +71,34 @@ class SignalerIncident extends StatelessWidget {
                     height: 10,
                   ),
                   const Text(
-                    "Titre & Type du ticket:",
+                    "Titre du ticket:",
                     style: TextStyle(color: kPrimaryColor, fontSize: 16),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
+                  TextFormField(
+                    maxLines: 1,
+                    decoration:  InputDecoration(
+                      hintText: "Titre",
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  const Text(
+                    "Type du ticket:",
+                    style: TextStyle(color: kPrimaryColor, fontSize: 16),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
 
-                          child: TextFormField(
-                            maxLines: 1,
-                            decoration:  InputDecoration(
-                              hintText: "Titre",
-                            ),
-                          ),
-                        ),
-                      ),
-                       Spacer(),
-                      const Flexible(
-                        child: WilayaButton(items: [
-                          'Question',
-                          'Problème',
-                          'Incident',
-                          'Demande'
-                        ], hint: "type"),
-                      ),
-                    ],
-                  ),
+                  WilayaButton(items: [
+                    'Question',
+                    'Problème',
+                    'Incident',
+                    'Demande'
+                  ], hint: "type"),
+
                   const SizedBox(
                     height: 20,
                   ),
@@ -107,10 +108,10 @@ class SignalerIncident extends StatelessWidget {
 
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   TextFormField(
-                    maxLines: 5,
+                    maxLines: 2,
                     decoration: const InputDecoration(hintText: "Description*"),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -122,12 +123,18 @@ class SignalerIncident extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  ElevatedButton.icon(
-                    label: const Text('Joindre fichier'),
-                    icon: const Icon(Icons.upload),
-                    onPressed: () async {
-                      final result = await FilePicker.platform.pickFiles();
-                    },
+                  Row(
+                    children:[
+                       Text("                                                             "),
+                      ElevatedButton.icon(
+                        label: const Text('Joindre fichier'),
+                        icon: const Icon(Icons.upload),
+                        onPressed: () async {
+                          final result = await FilePicker.platform.pickFiles();
+                        },
+                      ),
+                    ]
+
                   ),
                 ],
               ),
@@ -222,4 +229,6 @@ class SignalerIncident extends StatelessWidget {
       ),
     );
   }
+
+
 }

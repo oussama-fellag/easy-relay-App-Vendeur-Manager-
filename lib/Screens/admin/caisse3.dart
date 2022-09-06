@@ -42,15 +42,17 @@ class _CaisseState extends State<Caisse3> {
       body: Form(
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 const SizedBox(
                   height: 30,
                 ),
-                const Text(
-                  "   Transaction",
-                  style: TextStyle(
-                      fontSize: 20, color: kPrimaryColor, fontWeight: FontWeight.bold),
+                Center(
+                  child: const Text(
+                    "Transaction",
+                    style: TextStyle(
+                        fontSize: 20, color: kPrimaryColor, fontWeight: FontWeight.bold),
+                  ),
                 ),
 
                 const SizedBox(
@@ -86,6 +88,17 @@ class _CaisseState extends State<Caisse3> {
                   maxLines: 5,
                   decoration: const InputDecoration(hintText: "Commentaire"),
 
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                ElevatedButton.icon(
+                  label: const Text(' Selectioner une photo'),
+                  icon: const Icon(Icons.upload),
+                  onPressed: () async {
+
+                    _showPicker(context);
+                  },
                 ),
 
               ],

@@ -42,15 +42,17 @@ class _CaisseState extends State<Caisse> {
       body: Form(
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 const SizedBox(
                   height: 30,
                 ),
-                const Text(
-                  "   Transaction",
-                  style: TextStyle(
-                      fontSize: 20, color: kPrimaryColor, fontWeight: FontWeight.bold),
+                Center(
+                  child: const Text(
+                    "Transaction",
+                    style: TextStyle(
+                        fontSize: 20, color: kPrimaryColor, fontWeight: FontWeight.bold),
+                  ),
                 ),
 
                 const SizedBox(

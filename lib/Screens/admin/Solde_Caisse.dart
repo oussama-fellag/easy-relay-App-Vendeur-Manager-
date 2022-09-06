@@ -17,6 +17,104 @@ class SoldeCaisse extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        disabledElevation: 0.6,
+        child: const Icon(Icons.add),
+        onPressed: () =>
+            showModalBottomSheet<dynamic>(
+                isScrollControlled: true,
+                context: context,
+                builder: (BuildContext bc) {
+                  return Wrap(
+                      children: <Widget>[
+                        Container(
+                          child: Container(
+                            decoration: new BoxDecoration(
+
+                                borderRadius: new BorderRadius.only(
+                                    topLeft: const Radius.circular(25.0),
+                                    topRight: const Radius.circular(25.0))),
+                            child: Column(
+                              children: [
+                                SizedBox(height: 10,),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return Caisse();
+                                        },
+                                      ),
+                                    );
+                                  },
+                                  child: Text(
+                                      A,
+                                      style: TextStyle(
+                                          fontSize: 18)
+                                  ),
+                                ),
+                                SizedBox(height: 10,),
+                                const Divider(
+                                  thickness: 1, // thickness of the line
+                                  indent: 1, // empty space to the leading edge of divider.
+                                  endIndent: 1, // empty space to the trailing edge of the divider.
+                                  color: Colors.grey, // The color to use when painting the line.
+                                  height: 2, // The divider's height extent.
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return Caisse2();
+                                        },
+                                      ),
+                                    );
+                                  },
+                                  child:  Text(
+                                    B,
+                                    style: TextStyle(
+                                        fontSize: 18),
+                                  ),
+                                ),
+                                SizedBox(height: 10,),
+                                const Divider(
+                                  thickness: 1, // thickness of the line
+                                  indent: 1, // empty space to the leading edge of divider.
+                                  endIndent: 1, // empty space to the trailing edge of the divider.
+                                  color: Colors.grey, // The color to use when painting the line.
+                                  height: 2, // The divider's height extent.
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return Caisse3();
+                                        },
+                                      ),
+                                    );
+                                  },
+                                  child:  Text(
+                                    C,
+                                    style: TextStyle(
+                                        fontSize: 18),
+                                  ),
+                                ),
+                                SizedBox(height: 20,),
+                              ],
+                            ),
+                          ),
+                        )
+                      ]
+                  );
+                }
+            ),
+
+      ),
       appBar: AppBar(
         title: Text("Caisse"),
         backgroundColor: kPrimaryColor,
@@ -233,7 +331,7 @@ class SoldeCaisse extends StatelessWidget {
             ),
           ), //C
           SizedBox(
-            height: 20,
+            height: 35,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -274,108 +372,7 @@ class SoldeCaisse extends StatelessWidget {
             height: 40.0,
 
           ),
-          new Padding(
-            padding: const EdgeInsets.only(bottom: 9.0),
-            child: new FloatingActionButton(
 
-              onPressed: () {
-                showModalBottomSheet<dynamic>(
-                    isScrollControlled: true,
-                    context: context,
-                    builder: (BuildContext bc) {
-                      return Wrap(
-                          children: <Widget>[
-                            Container(
-                              child: Container(
-                                decoration: new BoxDecoration(
-
-                                    borderRadius: new BorderRadius.only(
-                                        topLeft: const Radius.circular(25.0),
-                                        topRight: const Radius.circular(25.0))),
-                                child: Column(
-                                  children: [
-                                    SizedBox(height: 10,),
-                                    GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) {
-                                              return Caisse();
-                                            },
-                                          ),
-                                        );
-                                      },
-                                      child: Text(
-                                        A,
-                                        style: TextStyle(
-                                            fontSize: 18)
-                                      ),
-                                    ),
-                                    SizedBox(height: 10,),
-                                    const Divider(
-                                      thickness: 1, // thickness of the line
-                                      indent: 1, // empty space to the leading edge of divider.
-                                      endIndent: 1, // empty space to the trailing edge of the divider.
-                                      color: Colors.grey, // The color to use when painting the line.
-                                      height: 2, // The divider's height extent.
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) {
-                                              return Caisse2();
-                                            },
-                                          ),
-                                        );
-                                      },
-                                      child:  Text(
-                                        B,
-                                        style: TextStyle(
-                                            fontSize: 18),
-                                      ),
-                                    ),
-                                    SizedBox(height: 10,),
-                                    const Divider(
-                                      thickness: 1, // thickness of the line
-                                      indent: 1, // empty space to the leading edge of divider.
-                                      endIndent: 1, // empty space to the trailing edge of the divider.
-                                      color: Colors.grey, // The color to use when painting the line.
-                                      height: 2, // The divider's height extent.
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) {
-                                              return Caisse3();
-                                            },
-                                          ),
-                                        );
-                                      },
-                                      child:  Text(
-                                        C,
-                                        style: TextStyle(
-                                             fontSize: 18),
-                                      ),
-                                    ),
-                                    SizedBox(height: 20,),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ]
-                      );
-                    }
-                );
-                
-              },
-              child: new Icon(Icons.add),
-            ),
-          ),
         ],
       ),
     );
